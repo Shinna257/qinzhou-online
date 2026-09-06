@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>任免通知 - 秦州在线</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .top-bar {
+            height: 36px;
+            background: #f1f1f1;
+            border-bottom: 1px solid #ddd;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .top-inner {
+            width: 1200px;
+            height: 36px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header {
+            height: 105px;
+            background: white;
+        }
+
+        .header-inner {
+            width: 1200px;
+            height: 105px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #c40000;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin-right: 18px;
+        }
+
+        .site-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #b30000;
+            letter-spacing: 2px;
+        }
+
+        .site-subtitle {
+            margin-top: 7px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .nav {
+            height: 48px;
+            background: #c40000;
+        }
+
+        .nav-inner {
+            width: 1200px;
+            height: 48px;
+            margin: auto;
+            display: flex;
+        }
+
+        .nav a {
+            flex: 1;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            background: #9f0000;
+        }
+
+        .main {
+            width: 1200px;
+            margin: 20px auto 40px;
+        }
+
+        .breadcrumb {
+            height: 48px;
+            background: white;
+            border: 1px solid #e5e5e5;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 18px;
+        }
+
+        .breadcrumb a {
+            color: #555;
+        }
+
+        .breadcrumb a:hover {
+            color: #c40000;
+        }
+
+        .breadcrumb span {
+            margin: 0 6px;
+        }
+
+        .article {
+            background: white;
+            border: 1px solid #e2e2e2;
+            padding: 40px 60px 60px;
+        }
+
+        .article-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: normal;
+            color: #333;
+            margin-bottom: 18px;
+        }
+
+        .article-info {
+            text-align: center;
+            color: #999;
+            font-size: 13px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .person-section {
+            margin-top: 35px;
+            display: flex;
+            gap: 35px;
+        }
+
+        .person-photo {
+            width: 180px;
+            height: 230px;
+            border: 1px solid #ccc;
+            background: #f7f7f7;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .person-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .person-info {
+            flex: 1;
+        }
+
+        .person-info p {
+            font-size: 16px;
+            line-height: 2.1;
+        }
+
+        .notice-text {
+            margin-top: 35px;
+            font-size: 16px;
+            line-height: 2.2;
+        }
+
+        .notice-text p {
+            margin-bottom: 18px;
+            text-indent: 2em;
+        }
+
+        .signature {
+            text-align: right;
+            margin-top: 50px;
+            line-height: 2;
+        }
+
+        footer {
+            background: #333;
+            color: #aaa;
+            text-align: center;
+            padding: 30px 15px;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        footer .footer-name {
+            color: #ddd;
+            font-size: 14px;
+        }
+
+        @media (max-width: 1250px) {
+            .top-inner,
+            .header-inner,
+            .nav-inner,
+            .main {
+                width: 94%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="top-bar">
+    <div class="top-inner">
+        <div>秦州市人民政府门户网站</div>
+        <div>无障碍浏览　|　网站地图</div>
+    </div>
+</div>
+
+<header class="header">
+    <div class="header-inner">
+        <div class="logo">秦</div>
+        <div>
+            <div class="site-title">秦州在线</div>
+            <div class="site-subtitle">秦州市人民政府门户网站</div>
+        </div>
+    </div>
+</header>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="index.html">首页</a>
+        <a href="news.html">秦州要闻</a>
+        <a href="gov.html" class="active">政务公开</a>
+        <a href="#">政务服务</a>
+        <a href="#">互动交流</a>
+        <a href="#">走进秦州</a>
+        <a href="#">专题专栏</a>
+        <a href="#">数据开放</a>
+    </div>
+</nav>
+
+<main class="main">
+
+    <div class="breadcrumb">
+        <a href="index.html">首页</a>
+        <span>＞</span>
+        <a href="gov.html">政务公开</a>
+        <span>＞</span>
+        <span>人事任免</span>
+    </div>
+
+    <article class="article">
+
+        <h1 class="article-title">
+            秦州市人民政府关于任命林志诚同志职务的通知
+        </h1>
+
+        <div class="article-info">
+            秦政任〔2026〕17号　　2026-08-28
+        </div>
+
+        <div class="person-section">
+
+            <div class="person-photo">
+                <!-- 此处放置林志诚照片 -->
+                <img src="images/lin-zhicheng.jpg" alt="林志诚">
+            </div>
+
+            <div class="person-info">
+                <p><strong>姓名：</strong>林志诚</p>
+                <p><strong>性别：</strong>男</p>
+                <p><strong>出生年月：</strong>1979年11月</p>
+                <p><strong>参加工作：</strong>2002年</p>
+                <p><strong>现任职务：</strong>秦州市交通运输局副局长</p>
+            </div>
+
+        </div>
+
+        <div class="notice-text">
+
+            <p>
+                经秦州市人民政府研究决定，任命林志诚同志为秦州市交通运输局副局长。
+            </p>
+
+            <p>
+                林志诚同志长期从事交通运输管理工作，具有较为丰富的城市交通管理和项目建设工作经验。
+            </p>
+
+            <p>
+                请有关单位按照规定办理相关任职手续。
+            </p>
+
+        </div>
+
+        <div class="signature">
+            秦州市人民政府<br>
+            2026年8月28日
+        </div>
+
+    </article>
+
+</main>
+
+<footer>
+    <div class="footer-name">
+        秦州在线　|　秦州市人民政府门户网站
+    </div>
+
+    <div>
+        政府信息公开　|　网站地图　|　联系我们
+    </div>
+
+    <div>
+        本网站为虚构网页，仅用于网页解谜游戏场景，
+        不代表任何真实政府机构或新闻机构。
+    </div>
+</footer>
+
+</body>
+</html>

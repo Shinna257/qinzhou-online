@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>城南片区城市更新项目正式启动 - 秦州在线</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 顶部 */
+        .top {
+            height: 38px;
+            background: #f5f5f5;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .top-inner {
+            width: 1200px;
+            height: 38px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #777;
+        }
+
+        .top-left span {
+            margin-right: 20px;
+        }
+
+        .top-right span {
+            margin-left: 18px;
+        }
+
+        /* 网站头部 */
+        .header {
+            height: 120px;
+            background: white;
+        }
+
+        .header-inner {
+            width: 1200px;
+            height: 100%;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 65px;
+            height: 65px;
+            border: 3px solid #b40000;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #b40000;
+            font-size: 25px;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .site-name {
+            font-size: 32px;
+            font-weight: bold;
+            color: #a80000;
+            letter-spacing: 3px;
+        }
+
+        .site-subtitle {
+            margin-top: 7px;
+            color: #888;
+            font-size: 13px;
+        }
+
+        .header-search {
+            display: flex;
+            width: 320px;
+            height: 38px;
+        }
+
+        .header-search input {
+            flex: 1;
+            border: 1px solid #ccc;
+            padding-left: 12px;
+            outline: none;
+        }
+
+        .header-search button {
+            width: 65px;
+            border: none;
+            background: #a80000;
+            color: white;
+        }
+
+        /* 导航 */
+        .nav {
+            height: 52px;
+            background: #a90000;
+        }
+
+        .nav-inner {
+            width: 1200px;
+            height: 52px;
+            margin: auto;
+            display: flex;
+        }
+
+        .nav a {
+            flex: 1;
+            color: white;
+            text-align: center;
+            line-height: 52px;
+            font-size: 16px;
+            border-right: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            background: #870000;
+        }
+
+        /* 面包屑 */
+        .breadcrumb {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            color: #888;
+        }
+.breadcrumb a {
+    color: #555;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    color: #c40000;
+}
+
+.breadcrumb span {
+    color: #777;
+}
+        .breadcrumb span {
+            margin: 0 6px;
+        }
+
+        /* 文章 */
+        .article {
+            background: white;
+            padding: 40px 80px 60px;
+        }
+
+        .article-title {
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            line-height: 1.5;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .article-info {
+            text-align: center;
+            color: #999;
+            font-size: 13px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .article-content {
+            padding-top: 30px;
+            font-size: 16px;
+            line-height: 2.2;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        /* 页脚 */
+        footer {
+            margin-top: 35px;
+            background: #333;
+            color: #bbb;
+            padding: 30px 0;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .footer-inner {
+            width: 1200px;
+            margin: auto;
+            text-align: center;
+        }
+
+        /* 手机 */
+        @media (max-width: 800px) {
+
+            .container,
+            .top-inner,
+            .header-inner,
+            .nav-inner,
+            .footer-inner {
+                width: 95%;
+            }
+
+            .header-search {
+                display: none;
+            }
+
+            .site-name {
+                font-size: 25px;
+            }
+
+            .nav-inner {
+                overflow-x: auto;
+            }
+
+            .nav a {
+                min-width: 100px;
+            }
+
+            .article {
+                padding: 30px 20px;
+            }
+
+            .article-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 顶部 -->
+    <div class="top">
+
+        <div class="top-inner">
+
+            <div class="top-left">
+                <span>秦州市人民政府</span>
+                <span>繁体中文</span>
+                <span>无障碍浏览</span>
+            </div>
+
+            <div class="top-right">
+                <span>网站地图</span>
+                <span>联系我们</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- 网站头部 -->
+    <header class="header">
+
+        <div class="header-inner">
+
+            <div class="logo-area">
+
+                <div class="logo">
+                    秦
+                </div>
+
+                <div>
+
+                    <div class="site-name">
+                        秦州在线
+                    </div>
+
+                    <div class="site-subtitle">
+                        秦州市人民政府门户网站
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="header-search">
+
+                <input
+                    type="text"
+                    placeholder="请输入搜索关键词"
+                >
+
+                <button>
+                    搜索
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- 导航 -->
+    <nav class="nav">
+
+        <div class="nav-inner">
+
+            <a href="index.html">
+                首页
+            </a>
+
+            <a href="news.html" class="active">
+                秦州要闻
+            </a>
+
+            <a href="government.html">
+                政务公开
+            </a>
+
+            <a href="policy.html">
+                政策文件
+            </a>
+
+            <a href="city.html">
+                城市建设
+            </a>
+
+            <a href="people.html">
+                民生服务
+            </a>
+
+            <a href="culture.html">
+                文化旅游
+            </a>
+
+            <a href="archive.html">
+                政府信息
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <div class="container">
+
+        <!-- 面包屑 -->
+        <div class="breadcrumb">
+
+             <a href="index.html">首页</a>
+    <span>＞</span>
+    <a href="news.html">秦州要闻</a>
+    <span>＞</span>
+    <span>城南片区城市更新项目正式启动</span>
+        </div>
+
+
+        <!-- 文章正文 -->
+        <article class="article">
+
+            <h1 class="article-title">
+                城南片区城市更新项目正式启动
+            </h1>
+
+
+            <div class="article-info">
+                发布时间：2026-09-05　　来源：秦州市人民政府办公室
+            </div>
+
+
+            <div class="article-content">
+
+                <p>
+                    近日，秦州市城南片区城市更新项目正式启动。
+                    此次项目将围绕老旧住宅、公共服务设施、道路环境等方面
+                    开展综合提升，进一步完善城市功能，改善居民生活环境。
+                </p>
+
+
+                <p>
+                    城南片区是秦州市较早形成的城市居住区域之一，
+                    建成时间较早，部分基础设施经过多年使用后需要进行
+                    更新维护。根据相关工作安排，本次城市更新将结合片区
+                    实际情况，分阶段推进相关建设工作。
+                </p>
+
+
+                <p>
+                    项目实施过程中，有关部门将对片区内道路、排水、
+                    照明以及公共空间等设施进行全面排查，并根据实际情况
+                    制定相应的改造方案。同时，将进一步完善社区公共服务
+                    配套，为居民提供更加便利的生活条件。
+                </p>
+
+
+                <p>
+                    <p>
+    <strong>炼金之人的火。</strong>
+</p>
+                </p>
+
+
+                <p>
+                    据了解，目前城南片区部分道路及公共区域已经开始
+                    进行前期施工准备。相关单位正在对施工区域进行划分，
+                    并做好交通组织、施工安全以及居民出行等方面的保障工作。
+                </p>
+
+
+                <p>
+                
+    <strong>漂布之人的碱。</strong>
+</p>  
+                
+
+
+                <p>
+                    秦州市有关部门表示，城市更新是一项长期工作，
+                    后续将根据项目建设进度持续完善相关配套设施。
+                    在保证施工质量的同时，将尽量降低施工对周边居民
+                    正常生活造成的影响。
+                </p>
+
+
+                <p>
+                    下一步，秦州市将继续推进重点片区更新改造，
+                    不断改善城市基础设施条件，提升城市综合承载能力，
+                    为居民创造更加宜居的生活环境。
+                </p>
+
+            </div>
+
+        </article>
+
+    </div>
+
+
+    <!-- 页脚 -->
+    <footer>
+
+        <div class="footer-inner">
+
+            秦州在线　|　秦州市人民政府门户网站
+            <br>
+
+            网站地图　联系我们　隐私声明
+            <br>
+
+            主办：秦州市人民政府办公厅
+            <br>
+
+            Copyright © 2026 秦州在线 All Rights Reserved.
+
+            <br><br>
+
+            本网站为虚构网页，仅用于网页解谜游戏场景，
+            不代表任何真实政府机构或新闻机构。
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

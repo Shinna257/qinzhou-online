@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>秦州市综合协调委员会档案查询系统</title>
+
+
+<style>
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+
+    font-family:
+    "Microsoft YaHei",
+    "微软雅黑",
+    Arial,
+    sans-serif;
+
+    background:#f5f5f5;
+
+    color:#333;
+
+}
+
+
+/* 顶部 */
+
+.top{
+
+    height:38px;
+
+    background:#f5f5f5;
+
+    border-bottom:1px solid #ddd;
+
+}
+
+
+.top-inner{
+
+    width:1200px;
+
+    margin:auto;
+
+    height:38px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    font-size:13px;
+
+    color:#777;
+
+}
+
+
+
+.header{
+
+    height:120px;
+
+    background:white;
+
+}
+
+
+
+.header-inner{
+
+    width:1200px;
+
+    height:100%;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+
+
+.logo{
+
+    width:65px;
+
+    height:65px;
+
+    border:3px solid #a80000;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#a80000;
+
+    font-size:25px;
+
+    font-weight:bold;
+
+    margin-right:15px;
+
+}
+
+
+
+.site-name{
+
+    font-size:32px;
+
+    color:#a80000;
+
+    font-weight:bold;
+
+    letter-spacing:3px;
+
+}
+
+
+.site-subtitle{
+
+    margin-top:7px;
+
+    font-size:13px;
+
+    color:#888;
+
+}
+
+
+
+/* 导航 */
+
+.nav{
+
+    height:52px;
+
+    background:#a90000;
+
+}
+
+
+
+.nav-inner{
+
+    width:1200px;
+
+    margin:auto;
+
+    display:flex;
+
+}
+
+
+
+.nav a{
+
+    flex:1;
+
+    height:52px;
+
+    line-height:52px;
+
+    text-align:center;
+
+    color:white;
+
+    font-size:16px;
+
+}
+
+
+
+/* 主体 */
+
+
+.container{
+
+    width:1200px;
+
+    margin:auto;
+
+}
+
+
+
+.page{
+
+    margin-top:25px;
+
+    background:white;
+
+    min-height:500px;
+
+    padding:50px;
+
+}
+
+
+
+.title{
+
+    text-align:center;
+
+    border-bottom:1px solid #ddd;
+
+    padding-bottom:25px;
+
+}
+
+
+
+.title h1{
+
+    font-size:28px;
+
+    font-weight:normal;
+
+}
+
+
+
+.title p{
+
+    margin-top:12px;
+
+    color:#999;
+
+    font-size:13px;
+
+}
+
+
+
+/* 查询区域 */
+
+
+.search-area{
+
+    width:600px;
+
+    margin:80px auto;
+
+    text-align:center;
+
+}
+
+
+
+.search-area h2{
+
+    font-size:20px;
+
+    font-weight:normal;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.search-box{
+
+    display:flex;
+
+    height:42px;
+
+}
+
+
+
+.search-box input{
+
+    flex:1;
+
+    border:1px solid #ccc;
+
+    padding-left:15px;
+
+    outline:none;
+
+}
+
+
+
+.search-box button{
+
+    width:90px;
+
+    border:none;
+
+    background:#a80000;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+
+
+.tip{
+
+    margin-top:25px;
+
+    color:#999;
+
+    font-size:13px;
+
+}
+
+
+
+.notice{
+
+    width:700px;
+
+    margin:0 auto;
+
+    background:#fafafa;
+
+    border-left:4px solid #aaa;
+
+    padding:15px 20px;
+
+    color:#666;
+
+    font-size:14px;
+
+    line-height:1.8;
+
+}
+
+
+
+/* 页脚 */
+
+footer{
+
+    margin-top:35px;
+
+    background:#333;
+
+    color:#bbb;
+
+    padding:30px;
+
+    text-align:center;
+
+    font-size:13px;
+
+    line-height:2;
+
+}
+
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+<div class="top">
+
+<div class="top-inner">
+
+<span>
+秦州市人民政府
+</span>
+
+
+<span>
+秦州在线
+</span>
+
+
+</div>
+
+</div>
+
+
+
+
+<header class="header">
+
+
+<div class="header-inner">
+
+
+<div class="logo">
+秦
+</div>
+
+
+<div>
+
+<div class="site-name">
+秦州在线
+</div>
+
+
+<div class="site-subtitle">
+秦州市人民政府门户网站
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</header>
+
+
+
+
+<nav class="nav">
+
+
+<div class="nav-inner">
+
+
+<a href="index.html">
+    
+首页
+</a>
+
+
+<a>
+NULL
+</a>
+
+
+<a>
+404
+</a>
+
+
+<a>
+哈基咪
+</a>
+
+
+</div>
+
+
+</nav>
+
+
+
+
+
+
+<div class="container">
+
+
+<div class="page">
+
+
+<div class="title">
+
+
+<h1>
+秦州市综合协调委员会历史档案查询系统
+</h1>
+
+
+<p>
+内部资料查询入口
+</p>
+
+
+</div>
+
+
+
+
+<div class="search-area">
+
+
+<h2>
+请输入档案编号
+</h2>
+
+
+
+<div class="search-box">
+
+
+<input 
+id="archiveKey"
+type="text"
+placeholder="请输入档案编号">
+
+
+<button onclick="searchArchive()">
+查询
+</button>
+
+
+
+</div>
+
+
+
+<div class="tip">
+
+请输入有效档案编号进行查询
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<div class="notice">
+
+
+提示：
+
+
+<br>
+
+
+本系统用于查询秦州市综合协调委员会历史资料。
+
+<br>
+
+
+部分档案因涉及专项工作内容，
+仅限授权人员访问。
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<footer>
+
+
+秦州在线 | 秦州市人民政府门户网站
+
+<br>
+
+主办：秦州市人民政府办公厅
+
+<br>
+
+本网站为虚构网页，仅用于网页解谜游戏场景
+
+
+</footer>
+
+
+
+
+
+
+<script>
+
+
+function searchArchive(){
+
+
+let key=document
+.getElementById("archiveKey")
+.value
+.trim();
+
+
+
+if(key==="QZ-ARCH-07"){
+
+
+window.location.href="archive_error.html";
+
+
+}
+
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+
+</html>

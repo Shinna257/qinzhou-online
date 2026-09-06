@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>秦州要闻 - 秦州在线</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .top-bar {
+            height: 36px;
+            background: #f3f3f3;
+            border-bottom: 1px solid #ddd;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .top-bar-inner {
+            width: 1200px;
+            margin: 0 auto;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header {
+            background: white;
+        }
+
+        .header-inner {
+            width: 1200px;
+            height: 105px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-mark {
+            width: 58px;
+            height: 58px;
+            background: #c40000;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: bold;
+            margin-right: 14px;
+        }
+
+        .logo-text h1 {
+            color: #b40000;
+            font-size: 30px;
+            letter-spacing: 2px;
+        }
+
+        .logo-text p {
+            color: #777;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .nav {
+            background: #c40000;
+            height: 48px;
+        }
+
+        .nav-inner {
+            width: 1200px;
+            height: 48px;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .nav a {
+            width: 150px;
+            height: 48px;
+            line-height: 48px;
+            text-align: center;
+            color: white;
+            font-size: 16px;
+        }
+
+        .nav a:hover {
+            background: #a80000;
+        }
+
+        .nav a.active {
+            background: #a80000;
+        }
+
+        .container {
+            width: 1200px;
+            margin: 25px auto;
+        }
+
+        .breadcrumb {
+            height: 42px;
+            line-height: 42px;
+            background: white;
+            padding: 0 20px;
+            border-bottom: 1px solid #ddd;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .breadcrumb a {
+            color: #555;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: #c40000;
+        }
+
+        .breadcrumb span {
+            color: #777;
+            margin: 0 5px;
+        }
+
+        .page-box {
+            background: white;
+            margin-top: 15px;
+            padding: 30px 40px 40px;
+        }
+
+        .page-title {
+            font-size: 25px;
+            color: #333;
+            font-weight: normal;
+            padding-bottom: 18px;
+            border-bottom: 2px solid #c40000;
+            margin-bottom: 5px;
+        }
+
+        .news-list {
+            width: 100%;
+        }
+
+        .news-list ul {
+            list-style: none;
+        }
+
+        .news-list li {
+            height: 58px;
+            line-height: 58px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            font-size: 15px;
+        }
+
+        .news-list li a {
+            color: #333;
+            width: 900px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .news-list li a:hover {
+            color: #c40000;
+        }
+
+        .news-list li span {
+            color: #999;
+            font-size: 13px;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 35px;
+            gap: 8px;
+        }
+
+        .pagination a {
+            display: block;
+            min-width: 36px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            border: 1px solid #ddd;
+            background: white;
+            color: #555;
+            font-size: 14px;
+            padding: 0 10px;
+        }
+
+        .pagination a:hover {
+            color: white;
+            background: #c40000;
+            border-color: #c40000;
+        }
+
+        .pagination a.active {
+            color: white;
+            background: #c40000;
+            border-color: #c40000;
+        }
+
+        .footer {
+            margin-top: 40px;
+            background: #333;
+            color: #aaa;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        @media (max-width: 1250px) {
+            .top-bar-inner,
+            .header-inner,
+            .nav-inner,
+            .container {
+                width: 94%;
+            }
+
+            .nav a {
+                width: auto;
+                flex: 1;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .header-inner {
+                height: 85px;
+            }
+
+            .logo-mark {
+                width: 45px;
+                height: 45px;
+                font-size: 17px;
+            }
+
+            .logo-text h1 {
+                font-size: 23px;
+            }
+
+            .nav a {
+                font-size: 12px;
+            }
+
+            .page-box {
+                padding: 20px;
+            }
+
+            .news-list li a {
+                width: 70%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 顶部工具栏 -->
+    <div class="top-bar">
+        <div class="top-bar-inner">
+            <div>秦州在线　欢迎您</div>
+            <div>无障碍浏览　|　网站导航</div>
+        </div>
+    </div>
+
+    <!-- 网站头部 -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-mark">秦</div>
+                <div class="logo-text">
+                    <h1>秦州在线</h1>
+                    <p>秦州市人民政府门户网站</p>
+                </div>
+            </a>
+        </div>
+    </header>
+
+    <!-- 导航栏 -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html">首页</a>
+            <a href="news.html" class="active">秦州要闻</a>
+            <a href="#">政务公开</a>
+            <a href="#">政策文件</a>
+            <a href="#">城市建设</a>
+            <a href="#">民生服务</a>
+            <a href="#">文化旅游</a>
+            <a href="#">政府信息</a>
+        </div>
+    </nav>
+
+    <!-- 页面主体 -->
+    <div class="container">
+
+        <!-- 面包屑 -->
+        <div class="breadcrumb">
+            <a href="index.html">首页</a>
+            <span>＞</span>
+            <span>秦州要闻</span>
+        </div>
+
+        <div class="page-box">
+
+            <h2 class="page-title">秦州要闻</h2>
+
+            <div class="news-list">
+                <ul>
+
+                    <li>
+                        <a href="404.html">秦州市重点民生项目建设取得阶段性进展</a>
+                        <span>2026-09-04</span>
+                    </li>
+
+                    <li>
+                        <a href="404.html">秦州市持续推进城区环境品质提升</a>
+                        <span>2026-09-04</span>
+                    </li>
+
+                    <li>
+                        <a href="404.html">秦州市召开秋季安全生产工作会议</a>
+                        <span>2026-09-03</span>
+                    </li>
+
+                    <li>
+                        <a href="404.html">秦州市公共服务领域改革稳步推进</a>
+                        <span>2026-09-03</span>
+                    </li>
+
+                    <li>
+                        <a href="404.html">秦州市开展重点区域交通秩序整治</a>
+                        <span>2026-09-02</span>
+                    </li>
+
+                    <li>
+                        <a href="404.html">鐏�绱㈠埌锛氭祦姘村凡涓嶅啀寰�鍥�</a>
+                        <span>2026-09-02</span>
+                    </li>
+
+                    <li>
+                        <a href="404.html">QZ_20260905//ERROR//0000</a>
+                        <span>2026-09-01</span>
+                    </li>
+
+                    <li>
+                        <a href="404.html">鍩庡競寤鸿//NULL//QZ</a>
+                        <span>2026-09-01</span>
+                    </li>
+
+                </ul>
+            </div>
+
+            <!-- 分页 -->
+            <div class="pagination">
+                <a href="news.html">1</a>
+                <a href="news2.html" class="active">2</a>
+                <a href="news3.html">3</a>
+                <a href="news3.html">下一页</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        秦州在线　|　秦州市人民政府门户网站<br>
+        本网站为虚构网页，仅用于网页解谜游戏场景，
+        不代表任何真实政府机构或新闻机构。
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>政务公开 - 秦州在线</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* 顶部灰色栏 */
+        .top-bar {
+            height: 36px;
+            background: #f1f1f1;
+            border-bottom: 1px solid #ddd;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .top-inner {
+            width: 1200px;
+            height: 36px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* 网站标题区域 */
+        .header {
+            background: #fff;
+            height: 105px;
+        }
+
+        .header-inner {
+            width: 1200px;
+            height: 105px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #c40000;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin-right: 18px;
+        }
+
+        .site-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #b30000;
+            letter-spacing: 2px;
+        }
+
+        .site-subtitle {
+            margin-top: 7px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        /* 导航栏 */
+        .nav {
+            height: 48px;
+            background: #c40000;
+        }
+
+        .nav-inner {
+            width: 1200px;
+            height: 48px;
+            margin: auto;
+            display: flex;
+        }
+
+        .nav a {
+            flex: 1;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            transition: background 0.2s;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            background: #9f0000;
+        }
+
+        /* 主体 */
+        .main {
+            width: 1200px;
+            margin: 20px auto 40px;
+        }
+
+        /* 面包屑 */
+        .breadcrumb {
+            height: 48px;
+            background: white;
+            border: 1px solid #e5e5e5;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 18px;
+        }
+
+        .breadcrumb a {
+            color: #555;
+        }
+
+        .breadcrumb a:hover {
+            color: #c40000;
+        }
+
+        .breadcrumb span {
+            margin: 0 6px;
+        }
+
+        /* 页面标题 */
+        .page-header {
+            background: white;
+            border: 1px solid #e5e5e5;
+            padding: 24px 30px;
+            margin-bottom: 20px;
+        }
+
+        .page-title {
+            font-size: 26px;
+            font-weight: normal;
+            border-left: 5px solid #c40000;
+            padding-left: 14px;
+        }
+
+        .page-desc {
+            color: #888;
+            font-size: 14px;
+            margin-top: 12px;
+            padding-left: 19px;
+        }
+
+        /* 两个政务栏目 */
+        .gov-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .gov-box {
+            background: white;
+            border: 1px solid #e2e2e2;
+            min-height: 430px;
+        }
+
+        .box-header {
+            height: 58px;
+            border-bottom: 2px solid #c40000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 22px;
+        }
+
+        .box-title {
+            display: flex;
+            align-items: center;
+            font-size: 21px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .box-icon {
+            width: 34px;
+            height: 34px;
+            background: #c40000;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 11px;
+            font-size: 17px;
+        }
+
+        .more {
+            color: #999;
+            font-size: 13px;
+        }
+
+        .more:hover {
+            color: #c40000;
+        }
+
+        /* 列表 */
+        .list {
+            padding: 8px 22px;
+        }
+
+        .list-item {
+            height: 62px;
+            border-bottom: 1px dashed #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .list-item:last-child {
+            border-bottom: none;
+        }
+
+        .list-title {
+            position: relative;
+            padding-left: 15px;
+            font-size: 15px;
+            color: #444;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            flex: 1;
+        }
+
+        .list-title::before {
+            content: "";
+            width: 5px;
+            height: 5px;
+            background: #999;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 8px;
+        }
+
+        .list-title:hover {
+            color: #c40000;
+        }
+
+        .list-date {
+            color: #999;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        /* 下方说明 */
+        .notice {
+            background: #fff;
+            border: 1px solid #e2e2e2;
+            margin-top: 20px;
+            padding: 22px 28px;
+        }
+
+        .notice-title {
+            color: #c40000;
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .notice p {
+            font-size: 14px;
+            color: #777;
+            line-height: 2;
+        }
+
+        /* 页脚 */
+        footer {
+            background: #333;
+            color: #aaa;
+            text-align: center;
+            padding: 30px 15px;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        footer .footer-name {
+            color: #ddd;
+            font-size: 14px;
+        }
+
+        /* 手机适配 */
+        @media (max-width: 1250px) {
+            .top-inner,
+            .header-inner,
+            .nav-inner,
+            .main {
+                width: 94%;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .gov-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-inner {
+                overflow-x: auto;
+            }
+
+            .nav a {
+                min-width: 100px;
+            }
+
+            .site-title {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 顶部 -->
+    <div class="top-bar">
+        <div class="top-inner">
+            <div>秦州市人民政府门户网站</div>
+            <div>无障碍浏览　|　网站地图</div>
+        </div>
+    </div>
+
+    <!-- 网站标题 -->
+    <header class="header">
+        <div class="header-inner">
+
+            <div class="logo">秦</div>
+
+            <div>
+                <div class="site-title">秦州在线</div>
+                <div class="site-subtitle">秦州市人民政府门户网站</div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- 导航 -->
+    <nav class="nav">
+        <div class="nav-inner">
+
+            <a href="index.html">首页</a>
+
+            <a href="news.html">秦州要闻</a>
+
+            <a href="gov.html" class="active">政务公开</a>
+
+            <a href="#">政务服务</a>
+
+            <a href="#">互动交流</a>
+
+            <a href="#">走进秦州</a>
+
+            <a href="#">专题专栏</a>
+
+            <a href="#">数据开放</a>
+
+        </div>
+    </nav>
+
+    <!-- 主体 -->
+    <main class="main">
+
+        <!-- 面包屑 -->
+        <div class="breadcrumb">
+            <a href="index.html">首页</a>
+            <span>＞</span>
+            <span>政务公开</span>
+        </div>
+
+        <!-- 页面标题 -->
+        <div class="page-header">
+
+            <div class="page-title">
+                政务公开
+            </div>
+
+            <div class="page-desc">
+                及时公开政府信息，依法保障公众知情权、参与权和监督权。
+            </div>
+
+        </div>
+
+        <!-- 两个栏目 -->
+        <div class="gov-grid">
+
+            <!-- 人事任免 -->
+            <section class="gov-box">
+
+                <div class="box-header">
+
+                    <div class="box-title">
+                        <div class="box-icon">人</div>
+                        人事任免
+                    </div>
+
+                    <a href="personnel.html" class="more">
+                        更多 ＞
+                    </a>
+
+                </div>
+
+                <div class="list">
+
+                    <div class="list-item">
+                        <a href="person1.html" class="list-title">
+                            秦州市人民政府关于任命张明远等同志职务的通知
+                        </a>
+                        <span class="list-date">2026-08-30</span>
+                    </div>
+
+                    <div class="list-item">
+                        <a href="person2.html" class="list-title">
+                            秦州市人民政府关于任命林志诚同志职务的通知
+                        </a>
+                        <span class="list-date">2026-08-28</span>
+                    </div>
+
+                    <div class="list-item">
+                        <a href="person3.html" class="list-title">
+                            秦州市人民政府关于免去周启山同志职务的通知
+                        </a>
+                        <span class="list-date">2026-08-26</span>
+                    </div>
+
+                    <div class="list-item">
+                        <a href="person4.html" class="list-title">
+                            秦州市人民政府关于免去顾蔓同志职务的通知
+                        </a>
+                        <span class="list-date">2026-08-24</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- 财政信息 -->
+            <section class="gov-box">
+
+                <div class="box-header">
+
+                    <div class="box-title">
+                        <div class="box-icon">财</div>
+                        财政信息
+                    </div>
+
+                    <a href="finance.html" class="more">
+                        更多 ＞
+                    </a>
+
+                </div>
+
+                <div class="list">
+
+                    <div class="list-item">
+                        <a href="finance1.html" class="list-title">
+                            2026年度秦州市财政预算执行情况
+                        </a>
+                        <span class="list-date">2026-08-31</span>
+                    </div>
+
+                    <div class="list-item">
+                        <a href="finance2.html" class="list-title">
+                            2026年度秦州市财政收支情况说明
+                        </a>
+                        <span class="list-date">2026-08-28</span>
+                    </div>
+
+                    <div class="list-item">
+                        <a href="finance3.html" class="list-title">
+                            2026年度秦州市政府性基金预算公开
+                        </a>
+                        <span class="list-date">2026-08-25</span>
+                    </div>
+
+                    <div class="list-item">
+                        <a href="finance4.html" class="list-title">
+                            2026年度重点民生项目资金使用情况
+                        </a>
+                        <span class="list-date">2026-08-21</span>
+                    </div>
+
+                    <div class="list-item">
+                        <a href="finance6.html" class="list-title">
+                            2026年度城市建设专项资金使用情况说明
+                        </a>
+                        <span class="list-date">2026-08-18</span>
+                    </div>
+
+                    <div class="list-item">
+                        <a href="finance5.html" class="list-title">
+                            2026年度市级财政决算公开说明
+                        </a>
+                        <span class="list-date">2026-08-15</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+        <!-- 信息公开说明 -->
+        <div class="notice">
+
+            <div class="notice-title">
+                政府信息公开说明
+            </div>
+
+            <p>
+                本栏目公开秦州市政府人事任免、财政预算及相关政府信息。
+                相关内容按照政府信息公开工作有关规定进行发布和更新。
+            </p>
+
+        </div>
+
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+
+        <div class="footer-name">
+            秦州在线　|　秦州市人民政府门户网站
+        </div>
+
+        <div>
+            政府信息公开　|　网站地图　|　联系我们
+        </div>
+
+        <div>
+            本网站为虚构网页，仅用于网页解谜游戏场景，
+            不代表任何真实政府机构或新闻机构。
+        </div>
+
+    </footer>
+
+</body>
+</html>

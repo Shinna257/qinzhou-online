@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>末卷 · 四序会</title>
+
+<style>
+
+/* =====================================================
+   基础
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    background:#050403;
+}
+
+body{
+
+    min-height:100vh;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #241814 0%,
+            #100b09 48%,
+            #030202 100%
+        );
+
+    color:#b8a58a;
+
+    font-family:
+        "Times New Roman",
+        "Songti SC",
+        "SimSun",
+        serif;
+
+    overflow-x:hidden;
+}
+
+
+/* =====================================================
+   背景宗教纹样
+===================================================== */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    width:900px;
+    height:900px;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(45deg);
+
+    border:
+
+        1px solid
+        rgba(145,108,72,.035);
+
+    box-shadow:
+
+        0 0 0 80px
+        rgba(145,108,72,.018),
+
+        0 0 0 160px
+        rgba(145,108,72,.012),
+
+        0 0 0 240px
+        rgba(145,108,72,.008);
+
+    pointer-events:none;
+
+    z-index:0;
+}
+
+
+/* 第二层圆环 */
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    width:680px;
+    height:680px;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(145,108,72,.035);
+
+    box-shadow:
+
+        inset 0 0 80px
+        rgba(0,0,0,.6),
+
+        0 0 0 1px
+        rgba(145,108,72,.012);
+
+    pointer-events:none;
+
+    z-index:0;
+}
+
+
+/* =====================================================
+   顶部
+===================================================== */
+
+.top{
+
+    width:100%;
+
+    padding:
+        32px
+        55px
+        20px;
+
+    display:flex;
+
+    justify-content:
+        space-between;
+
+    align-items:center;
+
+    position:relative;
+
+    z-index:10;
+}
+
+
+.top-left{
+
+    font-size:11px;
+
+    letter-spacing:5px;
+
+    color:#645646;
+}
+
+
+.top-right{
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    color:#443a30;
+}
+
+
+/* =====================================================
+   主卷轴
+===================================================== */
+
+.page{
+
+    width:
+        min(920px, calc(100% - 50px));
+
+    margin:
+        20px auto
+        100px;
+
+    padding:
+        80px 95px
+        100px;
+
+    position:relative;
+
+    z-index:5;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(32,22,17,.85),
+            rgba(47,33,24,.96),
+            rgba(31,22,17,.86)
+        );
+
+    border:
+
+        1px solid
+        rgba(137,103,69,.20);
+
+    box-shadow:
+
+        0 30px 80px
+        rgba(0,0,0,.8),
+
+        inset 0 0 80px
+        rgba(0,0,0,.35);
+
+}
+
+
+/* =====================================================
+   纸张边缘
+===================================================== */
+
+.page::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:12px;
+
+    border:
+
+        1px solid
+        rgba(145,111,75,.08);
+
+    pointer-events:none;
+}
+
+
+.page::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:25px;
+
+    border:
+
+        1px solid
+        rgba(145,111,75,.035);
+
+    pointer-events:none;
+}
+
+
+/* =====================================================
+   卷首
+===================================================== */
+
+.heading{
+
+    text-align:center;
+
+    margin-bottom:65px;
+}
+
+
+.small-title{
+
+    font-size:10px;
+
+    letter-spacing:7px;
+
+    color:#685646;
+
+    margin-bottom:25px;
+}
+
+
+.main-title{
+
+    font-size:36px;
+
+    letter-spacing:13px;
+
+    color:#c3ad8c;
+
+    font-weight:normal;
+}
+
+
+.hebrew-title{
+
+    margin-top:24px;
+
+    font-size:22px;
+
+    letter-spacing:8px;
+
+    color:#765f49;
+
+    direction:rtl;
+}
+
+
+.divider{
+
+    width:170px;
+
+    height:1px;
+
+    margin:32px auto 0;
+
+    background:
+        rgba(157,119,77,.25);
+
+}
+
+
+/* =====================================================
+   经文
+===================================================== */
+
+.scripture{
+
+    margin:
+        50px 0;
+
+    padding:
+        35px 38px;
+
+    border-left:
+        2px solid
+        rgba(120,72,49,.35);
+
+    background:
+        rgba(0,0,0,.12);
+
+    position:relative;
+}
+
+
+.scripture::before{
+
+    content:"❦";
+
+    position:absolute;
+
+    left:-11px;
+
+    top:-13px;
+
+    font-size:19px;
+
+    color:#795d47;
+
+    background:#2d2018;
+
+    padding:0 2px;
+}
+
+
+.scripture p{
+
+    margin-bottom:25px;
+
+    font-size:15px;
+
+    line-height:2.25;
+
+    color:#b7a58d;
+
+    letter-spacing:1px;
+}
+
+
+.scripture p:last-child{
+    margin-bottom:0;
+}
+
+
+.hebrew{
+
+    font-family:
+        "Times New Roman",
+        serif;
+
+    direction:rtl;
+
+    text-align:right;
+
+    color:#806850;
+
+    font-size:17px;
+
+    letter-spacing:2px;
+
+    line-height:2.2;
+}
+
+
+/* =====================================================
+   四序人物介绍
+===================================================== */
+
+.sequence{
+
+    margin:
+        75px 0;
+
+    padding:
+        35px 0;
+
+    border-top:
+        1px solid
+        rgba(136,101,66,.14);
+
+    border-bottom:
+        1px solid
+        rgba(136,101,66,.14);
+}
+
+
+.sequence-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    margin-bottom:30px;
+}
+
+
+.sequence-number{
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    color:#5f4b3a;
+}
+
+
+.sequence-name{
+
+    font-size:26px;
+
+    letter-spacing:8px;
+
+    color:#c0a988;
+
+    font-weight:normal;
+}
+
+
+.sequence-season{
+
+    margin-left:auto;
+
+    font-size:11px;
+
+    letter-spacing:5px;
+
+    color:#715842;
+}
+
+
+.sequence-body{
+
+    font-size:14px;
+
+    line-height:2.3;
+
+    color:#9f8c73;
+
+    text-align:justify;
+}
+
+
+.sequence-body em{
+
+    color:#c2a988;
+
+    font-style:normal;
+}
+
+
+/* =====================================================
+   四序符号
+===================================================== */
+
+.symbol{
+
+    width:120px;
+    height:120px;
+
+    margin:
+        35px auto
+        50px;
+
+    position:relative;
+
+    border:
+        1px solid
+        rgba(140,103,67,.14);
+
+    border-radius:50%;
+}
+
+
+.symbol::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:82px;
+    height:82px;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(45deg);
+
+    border:
+        1px solid
+        rgba(140,103,67,.12);
+}
+
+
+.symbol::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:28px;
+    height:28px;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    border:
+        1px solid
+        rgba(140,103,67,.18);
+
+    border-radius:50%;
+}
+
+
+/* =====================================================
+   注释
+===================================================== */
+
+.annotation{
+
+    margin:
+        35px 0
+        50px;
+
+    text-align:center;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:10px;
+
+    letter-spacing:4px;
+
+    color:#57483a;
+
+    line-height:2;
+}
+
+
+/* =====================================================
+   末段
+===================================================== */
+
+.final-text{
+
+    margin-top:80px;
+
+    text-align:center;
+}
+
+
+.final-text .hebrew{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+    color:#735a43;
+}
+
+
+.final-text p{
+
+    font-size:14px;
+
+    line-height:2.5;
+
+    color:#a28f76;
+
+    letter-spacing:1px;
+}
+
+
+/* =====================================================
+   底部
+===================================================== */
+
+.footer{
+
+    margin-top:90px;
+
+    padding-top:25px;
+
+    border-top:
+        1px solid
+        rgba(135,100,65,.10);
+
+    display:flex;
+
+    justify-content:
+        space-between;
+
+    color:#4c4033;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+}
+
+
+/* =====================================================
+   返回按钮
+===================================================== */
+
+.back{
+
+    position:fixed;
+
+    left:28px;
+    bottom:25px;
+
+    color:#4e4033;
+
+    text-decoration:none;
+
+    font-family:
+        "Microsoft YaHei",
+        sans-serif;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    z-index:50;
+
+    transition:.4s;
+}
+
+
+.back:hover{
+
+    color:#967758;
+}
+
+
+/* =====================================================
+   小屏
+===================================================== */
+
+@media(max-width:700px){
+
+    .page{
+
+        width:
+            calc(100% - 24px);
+
+        padding:
+            60px 30px
+            70px;
+    }
+
+    .main-title{
+
+        font-size:27px;
+
+        letter-spacing:8px;
+    }
+
+    .sequence-header{
+
+        flex-wrap:wrap;
+    }
+
+    .sequence-season{
+
+        width:100%;
+
+        margin-left:0;
+    }
+
+    .scripture{
+
+        padding:
+            25px 20px;
+    }
+
+}
+
+</style>
+</head>
+
+<div id="collapseScreen">
+    <div class="collapse-noise"></div>
+
+    <div class="collapse-message">
+        <div>ARCHIVE SYSTEM ERROR</div>
+        <div>READ FAILURE : QZ-ARCH-07</div>
+        <div id="collapseText">正在读取末卷……</div>
+    </div>
+</div>
+
+<style>
+
+#collapseScreen{
+    position:fixed;
+    inset:0;
+
+    background:#000;
+
+    z-index:99999;
+
+    display:none;
+
+    opacity:0;
+
+    pointer-events:none;
+}
+
+#collapseScreen.active{
+    display:block;
+}
+
+.collapse-noise{
+    position:absolute;
+    inset:0;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,.05) 0px,
+            rgba(255,255,255,.05) 1px,
+            transparent 1px,
+            transparent 3px
+        );
+
+    opacity:.15;
+}
+
+.collapse-message{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:80%;
+
+    color:#76554d;
+
+    font-family:monospace;
+
+    font-size:12px;
+
+    line-height:2.5;
+
+    letter-spacing:3px;
+
+    opacity:0;
+
+    text-align:center;
+}
+
+
+/* ===== 页面轻微故障 ===== */
+
+body.archive-glitch{
+    animation:
+        pageShake .12s infinite;
+}
+
+@keyframes pageShake{
+
+    0%{
+        transform:translate(0,0);
+    }
+
+    25%{
+        transform:translate(-2px,1px);
+    }
+
+    50%{
+        transform:translate(2px,-1px);
+    }
+
+    75%{
+        transform:translate(-1px,-2px);
+    }
+
+    100%{
+        transform:translate(1px,2px);
+    }
+}
+
+
+/* ===== 横向撕裂 ===== */
+
+body.archive-glitch::before{
+
+    animation:
+        glitchLines .18s infinite;
+
+}
+
+@keyframes glitchLines{
+
+    0%{
+        transform:translateX(0);
+        opacity:.02;
+    }
+
+    20%{
+        transform:translateX(-8px);
+        opacity:.12;
+    }
+
+    40%{
+        transform:translateX(6px);
+        opacity:.04;
+    }
+
+    60%{
+        transform:translateX(-4px);
+        opacity:.15;
+    }
+
+    80%{
+        transform:translateX(9px);
+        opacity:.06;
+    }
+
+    100%{
+        transform:translateX(0);
+        opacity:.02;
+    }
+}
+
+
+/* ===== 黑屏 ===== */
+
+#collapseScreen.fade{
+
+    display:block;
+
+    animation:
+        collapseFade 3.5s forwards;
+
+}
+
+@keyframes collapseFade{
+
+    0%{
+        opacity:0;
+    }
+
+    20%{
+        opacity:.15;
+    }
+
+    40%{
+        opacity:.35;
+    }
+
+    60%{
+        opacity:.65;
+    }
+
+    80%{
+        opacity:.88;
+    }
+
+    100%{
+        opacity:1;
+    }
+
+}
+
+
+/* ===== 故障文字 ===== */
+
+#collapseScreen.show-message
+.collapse-message{
+
+    animation:
+        messageAppear 1s forwards;
+
+}
+
+@keyframes messageAppear{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:.8;
+    }
+
+}
+
+</style>
+
+
+<script>
+
+(function(){
+
+    let triggered = false;
+
+    /*
+        防止玩家稍微往下一点就触发。
+        必须真正接近网页最底部。
+    */
+
+    function atBottom(){
+
+        const scrollPosition =
+            window.innerHeight +
+            window.scrollY;
+
+        const pageHeight =
+            document.documentElement.scrollHeight;
+
+        return pageHeight - scrollPosition < 8;
+
+    }
+
+
+    function startCollapse(){
+
+        if(triggered) return;
+
+        triggered = true;
+
+        const screen =
+            document.getElementById("collapseScreen");
+
+        const message =
+            document.querySelector(".collapse-message");
+
+        const text =
+            document.getElementById("collapseText");
+
+
+        /*
+            第一阶段：
+            页面只是出现异常
+        */
+
+        setTimeout(function(){
+
+            document.body.classList.add(
+                "archive-glitch"
+            );
+
+        },1200);
+
+
+        /*
+            第二阶段：
+            故障越来越明显
+        */
+
+        setTimeout(function(){
+
+            screen.classList.add("active");
+
+        },2500);
+
+
+        setTimeout(function(){
+
+            screen.classList.add(
+                "show-message"
+            );
+
+            text.innerHTML =
+                "正在重新读取档案……";
+
+        },3200);
+
+
+        /*
+            第三阶段：
+            修改错误信息
+        */
+
+        setTimeout(function(){
+
+            text.innerHTML =
+                "ERROR : ARCHIVE STRUCTURE CORRUPTED";
+
+        },4300);
+
+
+        setTimeout(function(){
+
+            text.innerHTML =
+                "ERROR : UNKNOWN ENTITY";
+
+        },5000);
+
+
+        setTimeout(function(){
+
+            text.innerHTML =
+                "ERROR : UNKNOWN ENTITY";
+
+        },5600);
+
+
+        /*
+            第四阶段：
+            开始黑屏
+        */
+
+        setTimeout(function(){
+
+            screen.classList.add("fade");
+
+        },6200);
+
+
+        /*
+            最后一句
+        */
+
+        setTimeout(function(){
+
+            text.innerHTML =
+                "……不是他们。";
+
+        },7200);
+
+
+        /*
+            最终跳转
+        */
+
+        setTimeout(function(){
+
+            window.location.href =
+                "true_end.html";
+
+        },9500);
+
+    }
+
+
+    /*
+        监听滚动
+    */
+
+    window.addEventListener(
+        "scroll",
+        function(){
+
+            if(atBottom()){
+
+                startCollapse();
+
+            }
+
+        },
+        {passive:true}
+    );
+
+
+})();
+
+</script>
+
+<body>
+
+
+<!-- =====================================================
+     顶部
+===================================================== -->
+
+<div class="top">
+
+    <div class="top-left">
+        QZ · ARCHIVE · IV
+    </div>
+
+    <div class="top-right">
+        FINAL FRAGMENT / SEALED
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     主文档
+===================================================== -->
+
+<main class="page">
+
+
+    <!-- 卷首 -->
+
+    <section class="heading">
+
+        <div class="small-title">
+            THE FOUR WATCHES
+        </div>
+
+        <h1 class="main-title">
+            末卷
+        </h1>
+
+        <div class="hebrew-title">
+            ארבע רוחות
+        </div>
+
+        <div class="divider"></div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         第一段经文
+    ================================================== -->
+
+    <section class="scripture">
+
+        <p>
+            这话临到先知之时，地尚未分其界，时尚未定其名。
+            风从四方而来，却不在四方停留；月行其轨，
+            岁守其门。凡有形之物，皆在所定的时候归回。
+        </p>
+
+        <p class="hebrew">
+            וְרוּחַ אַרְבַּע רוּחוֹת הָאָרֶץ
+        </p>
+
+        <p>
+            主说：我曾将你从旷野召回，又将你栽于葡萄园中。
+            你若归向我，我便使你的根重新发芽；
+            你若离弃我，枝叶虽盛，终必枯干。
+            因为日与夜各有其时，生与死亦各有其门。
+        </p>
+
+        <p>
+            是故，不可问其始，不可窥其终。
+            始者非始，终者非终。
+            春藏于冬之骨，冬伏于春之血。
+            四者相食，而四者不灭。
+        </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         何西阿
+    ================================================== -->
+
+    <section class="sequence">
+
+        <div class="sequence-header">
+
+            <div class="sequence-number">
+                I / PRIMORDIUM
+            </div>
+
+            <h2 class="sequence-name">
+                何西阿
+            </h2>
+
+            <div class="sequence-season">
+                春 · 始生
+            </div>
+
+        </div>
+
+
+        <div class="sequence-body">
+
+            <p>
+                <em>何西阿，为四序之首。</em>
+                其位属春，其职非为春，而为一切
+                “将成为春者”。
+                他司掌初始、复苏、萌发与归返。
+                凡沉于土中而未死者，皆归其名下。
+            </p>
+
+            <br>
+
+            <p>
+                古卷称其为
+                <em>“初息之守”</em>。
+                当万物尚未显形之时，他先于形而存在；
+                当枯枝再次吐绿之时，其名不被呼唤，
+                但其名已经在那里。
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         何西阿经文
+    ================================================== -->
+
+    <section class="scripture">
+
+        <p>
+            以色列年幼的时候，我爱他，
+            就从埃及召出我的儿子。
+            先知越发召呼他们，他们越发走开。
+            他们向诸巴力献祭，给雕刻的偶像烧香。
+        </p>
+
+        <p>
+            我原教导以法莲行走，用膀臂抱着他们；
+            他们却不知道是我医治他们。
+            我用慈绳爱索牵引他们。
+        </p>
+
+        <p class="hebrew">
+            כִּי נַעַר יִשְׂרָאֵל וָאֹהֲבֵהוּ
+        </p>
+
+        <p>
+            我必向以色列如甘露。
+            他必如百合花开放，
+            又如黎巴嫩的树木扎根。
+            他的枝条必延伸，
+            他的荣华如橄榄树。
+        </p>
+
+        <p class="hebrew">
+            אֶהְיֶה כַטַּל לְיִשְׂרָאֵל
+        </p>
+
+        <p>
+            于是初者归于初者，
+            根归于根，种归于土。
+            未生之物不可称死，
+            未醒之物不可称眠。
+            此为第一序。
+        </p>
+
+    </section>
+
+
+
+    <div class="annotation">
+        PRIMORDIUM · GERMINATIO · REDIVIVUS
+    </div>
+
+
+
+    <!-- =================================================
+         四序符号
+    ================================================== -->
+
+    <div class="symbol"></div>
+
+
+
+    <!-- =================================================
+         哈该
+    ================================================== -->
+
+    <section class="sequence">
+
+        <div class="sequence-header">
+
+            <div class="sequence-number">
+                II / PLENITUDO
+            </div>
+
+            <h2 class="sequence-name">
+                哈该
+            </h2>
+
+            <div class="sequence-season">
+                夏 · 繁极
+            </div>
+
+        </div>
+
+
+        <div class="sequence-body">
+
+            <p>
+                <em>哈该居第二位。</em>
+                夏者，万物之盛也。
+                其位在阳，其权在长。
+                已萌者使之繁，已繁者使之极。
+                凡枝叶、血肉、谷穗与火，
+                莫不受其节制。
+            </p>
+
+            <br>
+
+            <p>
+                故其名不可轻呼。
+                盛者最接近毁灭，
+                丰盈者最接近亏空。
+                当万物达到最高处，
+                便已经站在收获的门前。
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         哈该经文
+    ================================================== -->
+
+    <section class="scripture">
+
+        <p>
+            你们要上山取木，建造这殿；
+            我就因此喜乐，且得荣耀。
+            你们盼望多得，所得的却少；
+            你们收到家中，我就吹去。
+        </p>
+
+        <p>
+            你们盼望多得，所得的却少；
+            你们收到家中，我就吹去。
+            这是为什么呢？
+            因我的殿荒凉，你们各人却顾自己的房屋。
+        </p>
+
+        <p class="hebrew">
+            עֲלוּ הָהָר וַהֲבֵאתֶם עֵץ וּבְנוּ הַבָּיִת
+        </p>
+
+        <p>
+            银子是我的，金子也是我的。
+            这殿后来的荣耀必大过先前的荣耀；
+            我必在这地方赐平安。
+        </p>
+
+        <p>
+            然而盛极者不可久留。
+            夏火既燃，则秋门自开。
+            第二序既满，第三序便已经在收取。
+        </p>
+
+    </section>
+
+
+
+    <div class="annotation">
+        PLENITUDO · INCREMENTUM · ARDOR
+    </div>
+
+
+
+    <!-- =================================================
+         撒迦利亚
+    ================================================== -->
+
+    <section class="sequence">
+
+        <div class="sequence-header">
+
+            <div class="sequence-number">
+                III / COLLECTIO
+            </div>
+
+            <h2 class="sequence-name">
+                撒迦利亚
+            </h2>
+
+            <div class="sequence-season">
+                秋 · 归藏
+            </div>
+
+        </div>
+
+
+        <div class="sequence-body">
+
+            <p>
+                <em>撒迦利亚居第三位。</em>
+                秋者，不为死亡，而为收取。
+                枝头之果既熟，便不能再留于枝头；
+                麦穗既低首，便知收割之时已至。
+            </p>
+
+            <br>
+
+            <p>
+                其司掌收获、肃杀、审视与归藏。
+                凡曾由第一序而生、由第二序而盛者，
+                必在此处失去其名。
+                因为果实离枝之时，
+                枝与果已不再属于同一件事。
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         撒迦利亚经文
+    ================================================== -->
+
+    <section class="scripture">
+
+        <p>
+            我观看，见一飞行的书卷。
+            他对我说：
+            “这是发出的咒诅，遍行全地。”
+        </p>
+
+        <p class="hebrew">
+            וָאֶשָּׂא עֵינַי וָאֵרֶא וְהִנֵּה מְגִלָּה עָפָה
+        </p>
+
+        <p>
+            我又观看，见一妇人坐在量器中；
+            天使说，这是罪恶。
+            他就把铅圆扔在量器的口上。
+        </p>
+
+        <p>
+            你们要谨慎，不可藐视这些微小的事。
+            这是耶和华的眼目，
+            遍察全地。
+        </p>
+
+        <p>
+            四轮行走，轮中有轮。
+            其轮不转向左右，
+            却遍行其所当行之地。
+            凡被收取者皆入库，
+            凡被留下者皆待冬门。
+        </p>
+
+    </section>
+
+
+
+    <div class="annotation">
+        COLLECTIO · IUDICIUM · RECESSUS
+    </div>
+
+
+
+    <!-- =================================================
+         玛拉基
+    ================================================== -->
+
+    <section class="sequence">
+
+        <div class="sequence-header">
+
+            <div class="sequence-number">
+                IV / QUIES
+            </div>
+
+            <h2 class="sequence-name">
+                玛拉基
+            </h2>
+
+            <div class="sequence-season">
+                冬 · 沉寂
+            </div>
+
+        </div>
+
+
+        <div class="sequence-body">
+
+            <p>
+                <em>玛拉基居第四位。</em>
+                冬者，万物之静也。
+                非灭，乃藏。
+                非终，乃轮回之门。
+            </p>
+
+            <br>
+
+            <p>
+                当最后一片叶落下，
+                名字便从世界上撤去。
+                当火熄灭，
+                光却并未死亡。
+                它只是进入第四序，
+                等待再次被第一序唤醒。
+            </p>
+
+            <br>
+
+            <p>
+                故玛拉基所司并非死亡，
+                而是死亡之后仍未被看见的部分。
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         玛拉基经文
+    ================================================== -->
+
+    <section class="scripture">
+
+        <p>
+            万军之耶和华说：
+            “我曾爱你们。”
+            你们却说：
+            “你在何事上爱我们呢？”
+        </p>
+
+        <p>
+            看哪，那日临近，势如烧着的火炉。
+            凡狂傲的和行恶的必如碎秸，
+            那日来到必将他们烧尽。
+        </p>
+
+        <p class="hebrew">
+            כִּי הִנֵּה הַיּוֹם בָּא בֹּעֵר כַּתַּנּוּר
+        </p>
+
+        <p>
+            但向你们敬畏我名的人，
+            必有公义的日头出现，
+            其光线有医治之能。
+        </p>
+
+        <p>
+            记念我仆人摩西的律法，
+            就是我在何烈山为以色列众人所吩咐的律例典章。
+        </p>
+
+        <p>
+            第四序闭门。
+            名归于无名，
+            光归于无光，
+            尘归于尘。
+            而在无光之处，
+            第一颗种子已经开始呼吸。
+        </p>
+
+    </section>
+
+
+
+    <div class="annotation">
+        QUIES · FINIS · REDITUS
+    </div>
+
+
+
+    <!-- =================================================
+         最终四序
+    ================================================== -->
+
+    <section class="final-text">
+
+        <div class="hebrew">
+            לַכֹּל זְמָן וְעֵת לְכָל־חֵפֶץ תַּחַת הַשָּׁמָיִם
+        </div>
+
+
+        <p>
+            凡事都有定期，
+            天下万务都有定时。
+        </p>
+
+        <br>
+
+        <p>
+            何西阿为始。
+            哈该为盛。
+            撒迦利亚为收。
+            玛拉基为藏。
+        </p>
+
+        <br>
+
+        <p>
+            始生者不知其盛，
+            繁盛者不知其衰，
+            收获者不知其藏，
+            藏者不知其始。
+        </p>
+
+        <br>
+
+        <p>
+            四序非四人。
+            四人亦非四序。
+            名只是门，
+            门后仍有门。
+        </p>
+
+        <br>
+
+        <p>
+            若第一序不醒，
+            第二序不得至；
+            若第二序不满，
+            第三序不得收；
+            若第三序不尽，
+            第四序不得藏；
+            若第四序不开，
+            第一序永不复生。
+        </p>
+
+        <br>
+
+        <p>
+            <em>
+                四者轮转，岁岁不息。
+            </em>
+        </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         页脚
+    ================================================== -->
+
+    <div class="footer">
+
+        <span>
+            QZ / ARCHIVE
+        </span>
+
+        <span>
+            四序 · 末卷
+        </span>
+
+        <span>
+            IV / IV
+        </span>
+
+    </div>
+
+
+</main>
+
+
+<a
+    href="index.html"
+    class="back"
+>
+    ← 返回秦州在线
+</a>
+
+
+</body>
+</html>

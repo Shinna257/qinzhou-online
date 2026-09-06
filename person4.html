@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>任免通知 - 秦州在线</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .top-bar {
+            height: 36px;
+            background: #f1f1f1;
+            border-bottom: 1px solid #ddd;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .top-inner,
+        .header-inner,
+        .nav-inner,
+        .main {
+            width: 1200px;
+            margin: auto;
+        }
+
+        .top-inner {
+            height: 36px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header {
+            height: 105px;
+            background: white;
+        }
+
+        .header-inner {
+            height: 105px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #c40000;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin-right: 18px;
+        }
+
+        .site-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #b30000;
+            letter-spacing: 2px;
+        }
+
+        .site-subtitle {
+            margin-top: 7px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .nav {
+            height: 48px;
+            background: #c40000;
+        }
+
+        .nav-inner {
+            height: 48px;
+            display: flex;
+        }
+
+        .nav a {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            background: #9f0000;
+        }
+
+        .main {
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .breadcrumb {
+            height: 48px;
+            background: white;
+            border: 1px solid #e5e5e5;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 18px;
+        }
+
+        .breadcrumb a {
+            color: #555;
+        }
+
+        .breadcrumb a:hover {
+            color: #c40000;
+        }
+
+        .breadcrumb span {
+            margin: 0 6px;
+        }
+
+        .article {
+            background: white;
+            border: 1px solid #e2e2e2;
+            padding: 40px 60px 60px;
+        }
+
+        .article-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: normal;
+            margin-bottom: 18px;
+        }
+
+        .article-info {
+            text-align: center;
+            color: #999;
+            font-size: 13px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .person-section {
+            margin-top: 35px;
+            display: flex;
+            gap: 35px;
+        }
+
+        .person-photo {
+            width: 180px;
+            height: 230px;
+            border: 1px solid #ccc;
+            background: #f7f7f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            flex-shrink: 0;
+        }
+
+        .person-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .person-info {
+            flex: 1;
+        }
+
+        .person-info p {
+            font-size: 16px;
+            line-height: 2.1;
+        }
+
+        .notice-text {
+            margin-top: 35px;
+            font-size: 16px;
+            line-height: 2.2;
+        }
+
+        .notice-text p {
+            margin-bottom: 18px;
+            text-indent: 2em;
+        }
+
+        .clue {
+            font-weight: bold;
+            color: #c40000;
+        }
+
+        .signature {
+            text-align: right;
+            margin-top: 50px;
+            line-height: 2;
+        }
+
+        footer {
+            background: #333;
+            color: #aaa;
+            text-align: center;
+            padding: 30px 15px;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        footer .footer-name {
+            color: #ddd;
+        }
+
+        @media (max-width: 1250px) {
+            .top-inner,
+            .header-inner,
+            .nav-inner,
+            .main {
+                width: 94%;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .article {
+                padding: 30px 20px;
+            }
+
+            .person-section {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="top-bar">
+    <div class="top-inner">
+        <div>秦州市人民政府门户网站</div>
+        <div>无障碍浏览　|　网站地图</div>
+    </div>
+</div>
+
+<header class="header">
+    <div class="header-inner">
+
+        <div class="logo">秦</div>
+
+        <div>
+            <div class="site-title">秦州在线</div>
+            <div class="site-subtitle">秦州市人民政府门户网站</div>
+        </div>
+
+    </div>
+</header>
+
+<nav class="nav">
+    <div class="nav-inner">
+
+        <a href="index.html">首页</a>
+        <a href="news.html">秦州要闻</a>
+        <a href="gov.html" class="active">政务公开</a>
+        <a href="#">政务服务</a>
+        <a href="#">互动交流</a>
+        <a href="#">走进秦州</a>
+        <a href="#">专题专栏</a>
+        <a href="#">数据开放</a>
+
+    </div>
+</nav>
+
+<main class="main">
+
+    <div class="breadcrumb">
+
+        <a href="index.html">首页</a>
+
+        <span>＞</span>
+
+        <a href="gov.html">政务公开</a>
+
+        <span>＞</span>
+
+        <span>人事任免</span>
+
+    </div>
+
+    <article class="article">
+
+        <h1 class="article-title">
+            秦州市人民政府关于免去顾蔓同志职务的通知
+        </h1>
+
+        <div class="article-info">
+            秦政任〔2026〕15号　　2026-08-24
+        </div>
+
+
+        <div class="person-section">
+
+            <div class="person-photo">
+                <!-- 此处放置顾蔓照片 -->
+                <img src="images/gu-man.jpg" alt="顾蔓">
+            </div>
+
+            <div class="person-info">
+
+                <p><strong>姓名：</strong>顾蔓</p>
+
+                <p><strong>性别：</strong>女</p>
+
+                <p><strong>出生年月：</strong>1987年5月</p>
+
+                <p><strong>参加工作：</strong>2009年</p>
+
+                <p><strong>原任职务：</strong>秦州市城市建设规划研究所项目负责人</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="notice-text">
+
+            <p>
+                顾蔓，女，1987年5月出生，2009年参加工作，曾任秦州市城市建设规划研究所工作人员、秦州市旧城区改造办公室项目负责人。
+            </p>
+
+            <p>
+                2011年至2012年期间，曾参与秦州市旧城区历史建筑及地下空间调查工作。
+            </p>
+
+            <p>
+                2012年9月，根据工作安排，调离原工作岗位。
+            </p>
+
+            <p>
+                2026年8月，经研究，免去顾蔓同志现任职务。
+            </p>
+
+            <p>
+                鉴于有关工作涉及历史遗留问题及相关内部资料，具体情况不再另行说明。
+            </p>
+
+            <p>
+                <strong>
+                    截至本通知发布之日，<span class="clue">顾蔓</span>同志未在原工作单位办理相关手续。
+                </strong>
+            </p>
+
+            <p>
+                请有关单位按照规定做好相关工作。
+            </p>
+
+        </div>
+
+
+        <div class="signature">
+
+            秦州市人民政府<br>
+
+            2026年8月24日
+
+        </div>
+
+    </article>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-name">
+        秦州在线　|　秦州市人民政府门户网站
+    </div>
+
+    <div>
+        政府信息公开　|　网站地图　|　联系我们
+    </div>
+
+    <div>
+        本网站为虚构网页，仅用于网页解谜游戏场景，
+        不代表任何真实政府机构或新闻机构。
+    </div>
+
+</footer>
+
+</body>
+</html>

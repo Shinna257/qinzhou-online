@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>歌蔑</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#090705;
+    font-family:"Microsoft YaHei",sans-serif;
+    color:#d6c6a7;
+}
+
+body{
+    position:relative;
+    background:
+        radial-gradient(
+            circle at center,
+            #241b13 0%,
+            #120d09 42%,
+            #070504 100%
+        );
+}
+
+/* =========================
+   顶部
+========================= */
+
+.header{
+    position:absolute;
+    top:28px;
+    left:40px;
+    right:40px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    z-index:20;
+}
+
+.title{
+    font-family:serif;
+    font-size:25px;
+    letter-spacing:9px;
+    color:#b9a487;
+}
+
+.code{
+    font-size:11px;
+    letter-spacing:4px;
+    color:#6e6251;
+}
+
+
+/* =========================
+   中央区域
+========================= */
+
+#altar{
+
+    position:absolute;
+
+    width:310px;
+    height:270px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    z-index:5;
+
+    /* 非常淡的中央区域 */
+    background:
+        radial-gradient(
+            circle,
+            rgba(116,88,51,.07),
+            rgba(0,0,0,0) 68%
+        );
+}
+
+
+/* 中央圆形纹章 */
+
+.altar-symbol{
+
+    position:absolute;
+
+    width:230px;
+    height:230px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border:1px solid rgba(150,120,78,.10);
+
+    border-radius:50%;
+
+    opacity:.45;
+}
+
+.altar-symbol::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:150px;
+    height:150px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%) rotate(45deg);
+
+    border:1px solid rgba(150,120,78,.10);
+}
+
+.altar-symbol::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:95px;
+    height:95px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border:1px solid rgba(150,120,78,.08);
+
+    border-radius:50%;
+}
+
+
+/* =========================
+   三个凹槽
+========================= */
+
+.slot{
+
+    position:absolute;
+
+    width:78px;
+    height:78px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #050403,
+            #17110b
+        );
+
+    border:1px solid #3c3020;
+
+    box-shadow:
+        inset 6px 6px 12px rgba(0,0,0,.85),
+        inset -3px -3px 7px rgba(95,72,42,.10),
+        0 0 0 1px rgba(0,0,0,.4);
+
+    border-radius:3px;
+
+    transition:
+        box-shadow .3s,
+        border-color .3s;
+}
+
+
+/*
+   三角形排列
+*/
+
+#slot1{
+    left:116px;
+    top:20px;
+}
+
+#slot2{
+    left:48px;
+    top:140px;
+}
+
+#slot3{
+    right:48px;
+    top:140px;
+}
+
+
+/* 槽内部纹理 */
+
+.slot::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:10px;
+
+    border:1px solid rgba(124,96,59,.13);
+
+    transform:rotate(45deg);
+}
+
+.slot::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:8px;
+    height:8px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border:1px solid rgba(139,109,69,.18);
+
+    border-radius:50%;
+}
+
+
+/* 放入正确方块之后 */
+
+.slot.correct{
+
+    border-color:#75603d;
+
+    box-shadow:
+        inset 5px 5px 12px rgba(0,0,0,.9),
+        0 0 20px rgba(133,101,55,.16);
+}
+
+
+/* =========================
+   方块
+========================= */
+
+.block{
+
+    position:absolute;
+
+    width:78px;
+    height:78px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    user-select:none;
+
+    cursor:grab;
+
+    z-index:10;
+
+    color:#d4c09c;
+
+    font-family:serif;
+
+    font-size:15px;
+
+    letter-spacing:2px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #806744,
+            #4a3824 55%,
+            #302317
+        );
+
+    border:1px solid #9b8056;
+
+    border-radius:3px;
+
+    box-shadow:
+        5px 6px 12px rgba(0,0,0,.65),
+        inset 2px 2px 4px rgba(255,255,255,.12),
+        inset -3px -3px 6px rgba(0,0,0,.5);
+
+    transition:
+        box-shadow .15s,
+        transform .15s;
+}
+
+
+/* 方块里面的旧纹理 */
+
+.block::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:6px;
+
+    border:1px solid rgba(215,187,143,.12);
+
+    pointer-events:none;
+}
+
+.block:hover{
+
+    box-shadow:
+        7px 9px 15px rgba(0,0,0,.75),
+        inset 2px 2px 4px rgba(255,255,255,.15),
+        inset -3px -3px 6px rgba(0,0,0,.5);
+}
+
+.block.dragging{
+
+    cursor:grabbing;
+
+    z-index:100;
+
+    transform:scale(1.04);
+
+    box-shadow:
+        10px 14px 25px rgba(0,0,0,.8),
+        inset 2px 2px 5px rgba(255,255,255,.18);
+}
+
+
+/* =========================
+   底部提示
+========================= */
+
+.hint{
+
+    position:absolute;
+
+    bottom:34px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-size:11px;
+
+    letter-spacing:4px;
+
+    color:#514737;
+
+    z-index:20;
+}
+
+
+/* =========================
+   成功
+========================= */
+
+.success{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    flex-direction:column;
+
+    background:
+        rgba(5,3,2,.96);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:opacity 1.5s;
+
+    z-index:500;
+}
+
+.success.show{
+
+    opacity:1;
+}
+
+.success-main{
+
+    font-family:serif;
+
+    font-size:30px;
+
+    letter-spacing:12px;
+
+    color:#bca477;
+}
+
+.success-sub{
+
+    margin-top:18px;
+
+    font-size:10px;
+
+    letter-spacing:6px;
+
+    color:#635744;
+}
+
+
+/* =========================
+   返回
+========================= */
+
+.back{
+
+    position:absolute;
+
+    bottom:32px;
+    left:38px;
+
+    color:#4d4335;
+
+    text-decoration:none;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    z-index:30;
+
+    transition:.3s;
+}
+
+.back:hover{
+    color:#a38b64;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<div class="header">
+
+    <div class="title">
+        歌蔑
+    </div>
+
+    <div class="code">
+        FRAGMENT / 04
+    </div>
+
+</div>
+
+
+<!-- =========================
+     中央三个槽
+========================= -->
+
+<div id="altar">
+
+    <div class="altar-symbol"></div>
+
+    <div
+        class="slot"
+        id="slot1"
+        data-answer="哈该">
+    </div>
+
+    <div
+        class="slot"
+        id="slot2"
+        data-answer="玛拉基">
+    </div>
+
+    <div
+        class="slot"
+        id="slot3"
+        data-answer="撒迦利亚">
+    </div>
+
+</div>
+
+
+<!-- =========================
+     名字方块
+========================= -->
+
+<div id="game">
+
+    <div class="block" data-name="约珥">约珥</div>
+    <div class="block" data-name="阿摩斯">阿摩斯</div>
+    <div class="block" data-name="俄巴底亚">俄巴底亚</div>
+    <div class="block" data-name="约拿">约拿</div>
+    <div class="block" data-name="弥迦">弥迦</div>
+    <div class="block" data-name="那鸿">那鸿</div>
+    <div class="block" data-name="哈巴谷">哈巴谷</div>
+    <div class="block" data-name="西番雅">西番雅</div>
+    <div class="block" data-name="哈该">哈该</div>
+    <div class="block" data-name="撒迦利亚">撒迦利亚</div>
+    <div class="block" data-name="玛拉基">玛拉基</div>
+
+</div>
+
+
+<div class="hint">
+    将散落的名字归入应有的位置
+</div>
+
+
+<a href="index.html" class="back">
+    ← 返回秦州在线
+</a>
+
+
+<div class="success" id="success">
+
+    <div class="success-main">
+        四序归位
+    </div>
+
+    <div class="success-sub">
+        ARCHIVE UNLOCKED
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================================
+   基础参数
+========================================= */
+
+const blocks =
+    Array.from(
+        document.querySelectorAll(".block")
+    );
+
+const altar =
+    document.getElementById("altar");
+
+const slots =
+    Array.from(
+        document.querySelectorAll(".slot")
+    );
+
+const success =
+    document.getElementById("success");
+
+
+let dragging = null;
+
+let dragOffsetX = 0;
+let dragOffsetY = 0;
+
+let completed = 0;
+
+
+/* =========================================
+   防止方块生成在中央
+========================================= */
+
+function getAltarRect(){
+
+    const r =
+        altar.getBoundingClientRect();
+
+    return {
+
+        left:r.left - 80,
+        right:r.right + 80,
+
+        top:r.top - 80,
+        bottom:r.bottom + 80
+    };
+}
+
+
+/* =========================================
+   矩形碰撞
+========================================= */
+
+function overlap(a,b){
+
+    return !(
+        a.right <= b.left ||
+        a.left >= b.right ||
+        a.bottom <= b.top ||
+        a.top >= b.bottom
+    );
+}
+
+
+/* =========================================
+   获取方块矩形
+========================================= */
+
+function blockRect(x,y){
+
+    return {
+
+        left:x,
+        top:y,
+        right:x + 78,
+        bottom:y + 78
+
+    };
+}
+
+
+/* =========================================
+   生成位置
+========================================= */
+
+function createPositions(){
+
+    const used = [];
+
+    const forbidden =
+        getAltarRect();
+
+    blocks.forEach(block => {
+
+        let x;
+        let y;
+
+        let safe = false;
+
+        let attempts = 0;
+
+        while(!safe && attempts < 1000){
+
+            attempts++;
+
+            x =
+                Math.random() *
+                (window.innerWidth - 100);
+
+            y =
+                90 +
+                Math.random() *
+                (window.innerHeight - 190);
+
+            const r =
+                blockRect(x,y);
+
+            /*
+             * 不允许进入中央区域
+             */
+
+            if(
+                overlap(r,forbidden)
+            ){
+                continue;
+            }
+
+            /*
+             * 不允许互相重叠
+             */
+
+            let collision = false;
+
+            for(
+                const other of used
+            ){
+
+                if(
+                    overlap(
+                        r,
+                        other
+                    )
+                ){
+
+                    collision = true;
+                    break;
+                }
+
+            }
+
+            if(!collision){
+
+                safe = true;
+
+                used.push(r);
+
+                block.style.left =
+                    x + "px";
+
+                block.style.top =
+                    y + "px";
+
+                /*
+                 * 每个方块自己的移动速度
+                 */
+
+                block.dataset.vx =
+                    (
+                        Math.random() *
+                        0.45
+                        + 0.18
+                    )
+                    *
+                    (
+                        Math.random()>.5
+                        ? 1
+                        : -1
+                    );
+
+                block.dataset.vy =
+                    (
+                        Math.random() *
+                        0.38
+                        + 0.15
+                    )
+                    *
+                    (
+                        Math.random()>.5
+                        ? 1
+                        : -1
+                    );
+            }
+
+        }
+
+    });
+
+}
+
+
+/* =========================================
+   自动移动
+========================================= */
+
+function animate(){
+
+    blocks.forEach(block => {
+
+        /*
+         * 被玩家拖动时
+         * 不进行自动移动
+         */
+
+        if(
+            block === dragging ||
+            block.dataset.locked === "true"
+        ){
+            return;
+        }
+
+
+        let x =
+            parseFloat(block.style.left);
+
+        let y =
+            parseFloat(block.style.top);
+
+
+        let vx =
+            parseFloat(block.dataset.vx);
+
+        let vy =
+            parseFloat(block.dataset.vy);
+
+
+        let nx =
+            x + vx;
+
+        let ny =
+            y + vy;
+
+
+        const r =
+            blockRect(nx,ny);
+
+        const altarArea =
+            getAltarRect();
+
+
+        /*
+         * 碰到屏幕边缘反弹
+         */
+
+        if(
+            nx <= 15 ||
+            nx >= window.innerWidth - 93
+        ){
+
+            vx *= -1;
+            nx = x;
+        }
+
+
+        if(
+            ny <= 80 ||
+            ny >= window.innerHeight - 95
+        ){
+
+            vy *= -1;
+            ny = y;
+        }
+
+
+        /*
+         * 中央区域是绝对禁止进入的
+         *
+         * 方块不会主动接近中央
+         */
+
+        if(
+            overlap(
+                blockRect(nx,ny),
+                altarArea
+            )
+        ){
+
+            /*
+             * 直接反向
+             */
+
+            vx *= -1;
+            vy *= -1;
+
+            nx = x;
+            ny = y;
+        }
+
+
+        /*
+         * 与其他方块碰撞
+         */
+
+        for(
+            const other of blocks
+        ){
+
+            if(
+                other === block ||
+                other === dragging ||
+                other.dataset.locked === "true"
+            ){
+                continue;
+            }
+
+            const ox =
+                parseFloat(
+                    other.style.left
+                );
+
+            const oy =
+                parseFloat(
+                    other.style.top
+                );
+
+            if(
+                overlap(
+                    blockRect(nx,ny),
+                    blockRect(ox,oy)
+                )
+            ){
+
+                vx *= -1;
+                vy *= -1;
+
+                nx = x;
+                ny = y;
+
+                break;
+            }
+
+        }
+
+
+        block.style.left =
+            nx + "px";
+
+        block.style.top =
+            ny + "px";
+
+        block.dataset.vx = vx;
+        block.dataset.vy = vy;
+
+    });
+
+
+    requestAnimationFrame(animate);
+}
+
+
+/* =========================================
+   鼠标拖动
+========================================= */
+
+blocks.forEach(block => {
+
+    block.addEventListener(
+        "pointerdown",
+        e => {
+
+            if(
+                block.dataset.locked === "true"
+            ){
+                return;
+            }
+
+
+            dragging = block;
+
+            block.classList.add(
+                "dragging"
+            );
+
+
+            const rect =
+                block.getBoundingClientRect();
+
+
+            dragOffsetX =
+                e.clientX - rect.left;
+
+            dragOffsetY =
+                e.clientY - rect.top;
+
+
+            block.setPointerCapture(
+                e.pointerId
+            );
+
+        }
+    );
+
+
+    block.addEventListener(
+        "pointermove",
+        e => {
+
+            if(
+                dragging !== block
+            ){
+                return;
+            }
+
+
+            let x =
+                e.clientX -
+                dragOffsetX;
+
+            let y =
+                e.clientY -
+                dragOffsetY;
+
+
+            /*
+             * 防止拖出屏幕
+             */
+
+            x =
+                Math.max(
+                    0,
+                    Math.min(
+                        window.innerWidth - 78,
+                        x
+                    )
+                );
+
+            y =
+                Math.max(
+                    60,
+                    Math.min(
+                        window.innerHeight - 78,
+                        y
+                    )
+                );
+
+
+            block.style.left =
+                x + "px";
+
+            block.style.top =
+                y + "px";
+
+        }
+    );
+
+
+    block.addEventListener(
+        "pointerup",
+        e => {
+
+            if(
+                dragging !== block
+            ){
+                return;
+            }
+
+
+            block.releasePointerCapture(
+                e.pointerId
+            );
+
+
+            block.classList.remove(
+                "dragging"
+            );
+
+
+            checkSlot(block);
+
+
+            dragging = null;
+
+        }
+    );
+
+});
+
+
+/* =========================================
+   检查是否进入槽位
+========================================= */
+
+function checkSlot(block){
+
+    const rect =
+        block.getBoundingClientRect();
+
+
+    /*
+     * 用方块中心点判断
+     */
+
+    const centerX =
+        rect.left +
+        rect.width / 2;
+
+    const centerY =
+        rect.top +
+        rect.height / 2;
+
+
+    let placed = false;
+
+
+    for(
+        const slot of slots
+    ){
+
+        /*
+         * 已经被占用
+         */
+
+        if(
+            slot.classList.contains(
+                "correct"
+            )
+        ){
+            continue;
+        }
+
+
+        const sr =
+            slot.getBoundingClientRect();
+
+
+        const inside =
+            centerX >= sr.left &&
+            centerX <= sr.right &&
+            centerY >= sr.top &&
+            centerY <= sr.bottom;
+
+
+        if(!inside){
+            continue;
+        }
+
+
+        /*
+         * 放对了
+         */
+
+        if(
+            block.dataset.name ===
+            slot.dataset.answer
+        ){
+
+            const targetX =
+                sr.left +
+                (sr.width -
+                 block.offsetWidth) / 2;
+
+            const targetY =
+                sr.top +
+                (sr.height -
+                 block.offsetHeight) / 2;
+
+
+            block.style.left =
+                targetX + "px";
+
+            block.style.top =
+                targetY + "px";
+
+
+            block.dataset.locked =
+                "true";
+
+
+            block.style.cursor =
+                "default";
+
+
+            block.style.zIndex =
+                "8";
+
+
+            slot.classList.add(
+                "correct"
+            );
+
+
+            completed++;
+
+            placed = true;
+
+
+            checkWin();
+
+            break;
+
+        }
+
+    }
+
+
+    /*
+     * 如果没有正确放入
+     * 自动回到原来的区域
+     *
+     * 注意：
+     * 不会自动吸进槽里
+     */
+
+    if(!placed){
+
+        /*
+         * 稍微把它弹离中央区域
+         */
+
+        pushAwayFromCenter(block);
+
+    }
+
+}
+
+
+/* =========================================
+   放错后推离中央
+========================================= */
+
+function pushAwayFromCenter(block){
+
+    const altarArea =
+        getAltarRect();
+
+    let x =
+        parseFloat(block.style.left);
+
+    let y =
+        parseFloat(block.style.top);
+
+
+    const r =
+        blockRect(x,y);
+
+
+    if(
+        overlap(
+            r,
+            altarArea
+        )
+    ){
+
+        /*
+         * 根据方块所在位置
+         * 推回外围
+         */
+
+        const centerX =
+            altarArea.left +
+            (
+                altarArea.right -
+                altarArea.left
+            ) / 2;
+
+        const centerY =
+            altarArea.top +
+            (
+                altarArea.bottom -
+                altarArea.top
+            ) / 2;
+
+
+        const bx =
+            x + 39;
+
+        const by =
+            y + 39;
+
+
+        if(bx < centerX){
+
+            x =
+                altarArea.left -
+                90;
+
+        }else{
+
+            x =
+                altarArea.right +
+                10;
+
+        }
+
+
+        if(by < centerY){
+
+            y =
+                Math.max(
+                    80,
+                    y
+                );
+
+        }else{
+
+            y =
+                Math.min(
+                    window.innerHeight - 90,
+                    y
+                );
+
+        }
+
+
+        block.style.left =
+            Math.max(
+                10,
+                Math.min(
+                    window.innerWidth - 88,
+                    x
+                )
+            ) + "px";
+
+        block.style.top =
+            Math.max(
+                70,
+                Math.min(
+                    window.innerHeight - 88,
+                    y
+                )
+            ) + "px";
+
+    }
+
+}
+
+
+/* =========================================
+   胜利
+========================================= */
+
+function checkWin(){
+
+    if(completed !== 3){
+        return;
+    }
+
+
+    success.classList.add(
+        "show"
+    );
+
+
+    setTimeout(
+        () => {
+
+            window.location.href =
+                "end.html";
+
+        },
+        3000
+    );
+
+}
+
+
+/* =========================================
+   初始化
+========================================= */
+
+createPositions();
+
+animate();
+
+
+/*
+ * 浏览器窗口变化时重新检查
+ */
+
+window.addEventListener(
+    "resize",
+    () => {
+
+        blocks.forEach(block => {
+
+            if(
+                block.dataset.locked === "true"
+            ){
+                return;
+            }
+
+            let x =
+                parseFloat(
+                    block.style.left
+                );
+
+            let y =
+                parseFloat(
+                    block.style.top
+                );
+
+
+            x =
+                Math.min(
+                    x,
+                    window.innerWidth - 90
+                );
+
+            y =
+                Math.min(
+                    y,
+                    window.innerHeight - 90
+                );
+
+
+            block.style.left =
+                Math.max(10,x) + "px";
+
+            block.style.top =
+                Math.max(70,y) + "px";
+
+        });
+
+    }
+);
+
+</script>
+
+</body>
+</html>

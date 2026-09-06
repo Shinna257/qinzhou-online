@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026年度城市建设专项资金使用情况说明 - 秦州在线</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* 顶部 */
+        .top-bar {
+            height: 36px;
+            background: #f3f3f3;
+            border-bottom: 1px solid #ddd;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .top-inner {
+            width: 1000px;
+            margin: 0 auto;
+            line-height: 36px;
+        }
+
+        .top-right {
+            float: right;
+        }
+
+        /* 页头 */
+        header {
+            background: white;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .header-inner {
+            width: 1000px;
+            height: 105px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-box {
+            width: 55px;
+            height: 55px;
+            border: 3px solid #c40000;
+            border-radius: 50%;
+            margin-right: 14px;
+            position: relative;
+        }
+
+        .logo-box::before {
+            content: "秦";
+            position: absolute;
+            left: 7px;
+            top: 7px;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            color: #c40000;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            font-size: 30px;
+            font-weight: bold;
+            color: #c40000;
+            letter-spacing: 2px;
+        }
+
+        .logo-sub {
+            margin-left: 12px;
+            padding-left: 12px;
+            border-left: 1px solid #ccc;
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* 导航 */
+        nav {
+            background: #c40000;
+            height: 48px;
+        }
+
+        .nav-inner {
+            width: 1000px;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .nav-inner a {
+            color: white;
+            width: 125px;
+            text-align: center;
+            line-height: 48px;
+            font-size: 16px;
+        }
+
+        .nav-inner a:hover,
+        .nav-inner a.active {
+            background: #a90000;
+        }
+
+        /* 主体 */
+        .container {
+            width: 1000px;
+            margin: 0 auto;
+            background: white;
+            min-height: 900px;
+            padding-bottom: 60px;
+        }
+
+        /* 面包屑 */
+        .breadcrumb {
+            height: 52px;
+            line-height: 52px;
+            padding: 0 40px;
+            border-bottom: 1px solid #eee;
+            font-size: 13px;
+            color: #777;
+        }
+
+        .breadcrumb a {
+            color: #555;
+        }
+
+        .breadcrumb a:hover {
+            color: #c40000;
+        }
+
+        .breadcrumb span {
+            margin: 0 8px;
+            color: #999;
+        }
+
+        /* 文章 */
+        .article {
+            width: 860px;
+            margin: 0 auto;
+            padding-top: 35px;
+        }
+
+        .article-title {
+            text-align: center;
+            font-size: 27px;
+            font-weight: bold;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        .article-info {
+            text-align: center;
+            color: #888;
+            font-size: 13px;
+            margin-top: 18px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .article-info span {
+            margin: 0 15px;
+        }
+
+        .article-body {
+            padding-top: 30px;
+            font-size: 16px;
+            line-height: 2.1;
+        }
+
+        .article-body p {
+            text-indent: 2em;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 28px 0 15px;
+            padding-left: 12px;
+            border-left: 4px solid #c40000;
+        }
+
+        /* 财政表格 */
+        .finance-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0 28px;
+            font-size: 15px;
+        }
+
+        .finance-table th,
+        .finance-table td {
+            border: 1px solid #ccc;
+            padding: 13px 15px;
+        }
+
+        .finance-table th {
+            background: #f3f3f3;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .finance-table td:first-child {
+            width: 40%;
+        }
+
+        .finance-table td:nth-child(2) {
+            width: 25%;
+            text-align: right;
+        }
+
+        .finance-table td:nth-child(3) {
+            width: 35%;
+            color: #666;
+        }
+
+        .total-row {
+            font-weight: bold;
+            background: #fafafa;
+        }
+
+        /* 突兀的专项支出 */
+        .special-row td {
+            background: #fafafa;
+        }
+
+        .special-number {
+            font-weight: bold;
+        }
+
+        /* 附注 */
+        .notice {
+            margin-top: 25px;
+            padding: 18px 22px;
+            background: #f7f7f7;
+            border: 1px solid #ddd;
+            font-size: 14px;
+            line-height: 1.9;
+            color: #555;
+        }
+
+        .notice-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .document-number {
+            text-align: right;
+            margin-top: 45px;
+            line-height: 2;
+            font-size: 15px;
+        }
+
+        /* footer */
+        footer {
+            margin-top: 0;
+            background: #333;
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .footer-inner {
+            width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 28px 0;
+            line-height: 2;
+        }
+
+        .fiction {
+            color: #888;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 顶部 -->
+    <div class="top-bar">
+        <div class="top-inner">
+            秦州在线
+            <div class="top-right">
+                网站首页　|　联系我们
+            </div>
+        </div>
+    </div>
+
+    <!-- 页头 -->
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <div class="logo-box"></div>
+                <div class="logo-text">秦州在线</div>
+                <div class="logo-sub">秦州市人民政府门户网站</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 导航 -->
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html">首页</a>
+            <a href="news.html">秦州要闻</a>
+            <a href="gov.html" class="active">政务公开</a>
+            <a href="#">政务服务</a>
+            <a href="#">互动交流</a>
+            <a href="#">走进秦州</a>
+            <a href="#">专题专栏</a>
+            <a href="#">网站导航</a>
+        </div>
+    </nav>
+
+    <!-- 主体 -->
+    <div class="container">
+
+        <!-- 面包屑 -->
+        <div class="breadcrumb">
+            <a href="index.html">首页</a>
+            <span>＞</span>
+            <a href="gov.html">政务公开</a>
+            <span>＞</span>
+            <span>财政信息</span>
+        </div>
+
+        <article class="article">
+
+            <h1 class="article-title">
+                2026年度城市建设专项资金使用情况说明
+            </h1>
+
+            <div class="article-info">
+                <span>秦州市财政局</span>
+                <span>秦财建〔2026〕37号</span>
+                <span>2026-08-18</span>
+            </div>
+
+            <div class="article-body">
+
+                <p>
+                    根据《中华人民共和国预算法》及有关财政资金管理规定，
+                    现将2026年度秦州市城市建设专项资金使用情况予以公开。
+                </p>
+
+                <p>
+                    2026年度，我市城市建设专项资金主要用于城市基础设施建设、
+                    老旧城区改造、公共设施维护、历史建筑保护以及其他相关专项工作。
+                </p>
+
+                <div class="section-title">
+                    一、专项资金总体使用情况
+                </div>
+
+                <table class="finance-table">
+                    <thead>
+                        <tr>
+                            <th>支出项目</th>
+                            <th>金额（万元）</th>
+                            <th>主要用途</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>城市道路建设</td>
+                            <td>12,8</td>
+                            <td>道路改造及配套基础设施建设</td>
+                        </tr>
+
+                        <tr>
+                            <td>老旧小区改造</td>
+                            <td>9,46</td>
+                            <td>老旧住宅及公共区域改造</td>
+                        </tr>
+
+                        <tr>
+                            <td>公共设施维护</td>
+                            <td>6,25</td>
+                            <td>城区公共设施维护及更新</td>
+                        </tr>
+
+                        <tr>
+                            <td>历史建筑保护</td>
+                            <td>3,18</td>
+                            <td>历史建筑修缮及保护工作</td>
+                        </tr>
+
+                        <tr class="special-row">
+                            <td>其他专项支出</td>
+                            <td class="special-number">38,600</td>
+                            <td>相关专项工作及处置支出</td>
+                        </tr>
+
+                        <tr class="total-row">
+                            <td>合计</td>
+                            <td>70,290</td>
+                            <td>—</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <div class="section-title">
+                    二、其他专项支出使用情况
+                </div>
+
+                <p>
+                    经有关部门批准，2026年度城市建设专项资金中“其他专项支出”
+                    共计38,600万元，主要用于解决城市建设过程中部分历史遗留问题、
+                    特殊区域环境治理及相关调查处置工作。
+                </p>
+
+                <p>
+                    相关资金按照专项资金管理要求实行专账核算，
+                    严格履行资金拨付、审批及使用程序，确保财政资金规范使用。
+                </p>
+
+                <p>
+                    部分支出事项涉及历史遗留问题及相关内部工作安排，
+                    按照有关规定不予公开具体支出明细。
+                </p>
+
+                <div class="notice">
+                    <div class="notice-title">专项资金管理说明</div>
+
+                    本年度相关专项资金按照专款专用原则进行管理。
+                    涉及特殊区域、历史遗留问题及相关调查处置工作的资金，
+                    由<strong>秦州市综合事务协调委员会（简称秦综协委）</strong>根据实际工作需要统筹安排。
+
+                    <br>
+
+                    专项编号：QZ-07
+                </div>
+
+                <div class="section-title">
+                    三、资金使用及管理情况
+                </div>
+
+                <p>
+                    各有关单位按照预算管理及专项资金管理有关规定，
+                    认真落实资金使用主体责任，严格执行财政资金审批制度。
+                </p>
+
+                <p>
+                    经有关部门审核，2026年度城市建设专项资金总体使用情况
+                    符合预算安排及相关管理要求。
+                </p>
+
+                <p>
+                    下一步，我市将进一步加强城市建设专项资金绩效管理，
+                    持续提高财政资金使用效益。
+                </p>
+
+                <div class="document-number">
+                    秦州市财政局<br>
+                    2026年8月18日
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="footer-inner">
+            秦州在线　|　秦州市人民政府门户网站<br>
+            版权所有　未经许可不得转载
+            <div class="fiction">
+                本网站为虚构网站，仅用于解谜游戏，不代表任何真实政府机构。
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

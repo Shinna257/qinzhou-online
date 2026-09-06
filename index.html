@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>秦州在线 - 秦州市人民政府</title>
+
+    <style>
+
+        /* =========================
+           基础设置
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family:
+                "Microsoft YaHei",
+                "微软雅黑",
+                Arial,
+                sans-serif;
+
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+
+        /* =========================
+           顶部
+        ========================= */
+
+        .top {
+            background: #f5f5f5;
+            height: 38px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .top-inner {
+            width: 1200px;
+            margin: auto;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            height: 38px;
+
+            font-size: 13px;
+            color: #777;
+        }
+
+        .top-left span {
+            margin-right: 20px;
+        }
+
+        .top-right span {
+            margin-left: 18px;
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           网站头部
+        ========================= */
+
+        .header {
+            background: white;
+            height: 120px;
+        }
+
+        .header-inner {
+            width: 1200px;
+            height: 100%;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+
+            width: 65px;
+            height: 65px;
+
+            border: 3px solid #b40000;
+
+            border-radius: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: #b40000;
+
+            font-size: 25px;
+            font-weight: bold;
+
+            margin-right: 15px;
+        }
+
+        .site-name {
+            font-size: 32px;
+            font-weight: bold;
+            color: #a80000;
+            letter-spacing: 3px;
+        }
+
+        .site-subtitle {
+            margin-top: 7px;
+            color: #888;
+            font-size: 13px;
+        }
+
+        .header-search {
+            display: flex;
+            width: 320px;
+            height: 38px;
+        }
+
+        .header-search input {
+            flex: 1;
+
+            border: 1px solid #ccc;
+
+            padding-left: 12px;
+
+            outline: none;
+        }
+
+        .header-search button {
+            width: 65px;
+
+            border: none;
+
+            background: #a80000;
+            color: white;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           导航
+        ========================= */
+
+        .nav {
+            background: #a90000;
+            height: 52px;
+        }
+
+        .nav-inner {
+            width: 1200px;
+            margin: auto;
+
+            display: flex;
+            height: 52px;
+        }
+
+        .nav a {
+            flex: 1;
+
+            color: white;
+
+            text-align: center;
+
+            line-height: 52px;
+
+            font-size: 16px;
+
+            border-right: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .nav a:hover {
+            background: #870000;
+        }
+
+        .nav a.active {
+            background: #870000;
+        }
+
+
+        /* =========================
+           首页大图区域
+        ========================= */
+
+        .banner {
+            height: 330px;
+
+            margin-top: 20px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    rgba(80, 30, 20, 0.25),
+                    rgba(80, 30, 20, 0.45)
+                ),
+                url("city.png");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .banner-text {
+            position: absolute;
+
+            left: 45px;
+            bottom: 35px;
+
+            color: white;
+
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .banner-text h1 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .banner-text p {
+            font-size: 16px;
+        }
+
+
+        /* =========================
+           信息栏
+        ========================= */
+
+        .notice {
+            margin-top: 15px;
+
+            height: 45px;
+
+            background: white;
+
+            border-left: 5px solid #a80000;
+
+            display: flex;
+            align-items: center;
+
+            padding: 0 15px;
+        }
+
+        .notice-title {
+            font-weight: bold;
+            color: #a80000;
+            margin-right: 20px;
+        }
+
+        .notice-text {
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           新闻区域
+        ========================= */
+
+        .news-area {
+
+            margin-top: 20px;
+
+            display: grid;
+
+            grid-template-columns:
+                2fr
+                1fr
+                1fr;
+
+            gap: 20px;
+        }
+
+        .box {
+
+            background: white;
+
+            padding: 18px;
+
+            border-top: 3px solid #a80000;
+        }
+
+        .box-title {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            border-bottom: 1px solid #ddd;
+
+            padding-bottom: 10px;
+
+            margin-bottom: 10px;
+        }
+
+        .box-title h2 {
+
+            font-size: 20px;
+
+            color: #333;
+        }
+
+        .more {
+
+            font-size: 13px;
+
+            color: #999;
+        }
+
+        .more:hover {
+            color: #a80000;
+        }
+
+
+        /* 新闻列表 */
+
+        .news-item {
+
+            padding: 11px 0;
+
+            border-bottom: 1px dashed #ddd;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 10px;
+        }
+
+        .news-item a {
+
+            font-size: 14px;
+
+            line-height: 1.5;
+
+            white-space: nowrap;
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+        }
+
+        .news-item a:hover {
+            color: #a80000;
+        }
+
+        .news-date {
+
+            color: #999;
+
+            font-size: 12px;
+
+            white-space: nowrap;
+        }
+
+
+        /* =========================
+           重点新闻
+        ========================= */
+
+        .headline {
+
+            font-size: 21px;
+
+            font-weight: bold;
+
+            line-height: 1.5;
+
+            margin-bottom: 12px;
+
+            color: #333;
+        }
+
+        .headline:hover {
+            color: #a80000;
+        }
+
+        .headline-desc {
+
+            color: #777;
+
+            font-size: 13px;
+
+            line-height: 1.8;
+
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================
+           政务服务
+        ========================= */
+
+        .service {
+
+            margin-top: 20px;
+
+            background: white;
+
+            padding: 20px;
+        }
+
+        .service-title {
+
+            font-size: 21px;
+
+            border-left: 5px solid #a80000;
+
+            padding-left: 10px;
+
+            margin-bottom: 20px;
+        }
+
+        .service-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+        }
+
+        .service-item {
+
+            height: 90px;
+
+            border: 1px solid #eee;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            transition: 0.2s;
+
+            cursor: pointer;
+        }
+
+        .service-item:hover {
+
+            border-color: #a80000;
+
+            color: #a80000;
+
+            background: #fffafa;
+        }
+
+        .service-icon {
+
+            font-size: 25px;
+
+            margin-bottom: 8px;
+        }
+
+
+        /* =========================
+           政策文件 + 专题
+        ========================= */
+
+        .bottom-area {
+
+            margin-top: 20px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+        }
+
+
+        /* =========================
+           页脚
+        ========================= */
+
+        footer {
+
+            margin-top: 35px;
+
+            background: #333;
+
+            color: #bbb;
+
+            padding: 30px 0;
+
+            font-size: 13px;
+
+            line-height: 2;
+        }
+
+        .footer-inner {
+
+            width: 1200px;
+
+            margin: auto;
+
+            text-align: center;
+        }
+
+
+        /* =========================
+           手机适配
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .container,
+            .top-inner,
+            .header-inner,
+            .nav-inner,
+            .footer-inner {
+
+                width: 95%;
+            }
+
+            .header-search {
+                display: none;
+            }
+
+            .site-name {
+                font-size: 25px;
+            }
+
+            .nav-inner {
+                overflow-x: auto;
+            }
+
+            .nav a {
+                min-width: 100px;
+            }
+
+            .news-area {
+                display: block;
+            }
+
+            .box {
+                margin-bottom: 20px;
+            }
+
+            .bottom-area {
+                display: block;
+            }
+
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+    </style>
+
+</head>
+
+<script>
+
+function doSearch() {
+
+    // 获取搜索框内容
+    const keyword = document
+        .getElementById("searchInput")
+        .value
+        .trim();
+ if(keyword === "QZ-ARCH-07"){
+        alert("请使用特殊档案查询功能");
+        return;
+    }
+    // 关键词对应页面
+    const searchPages = {
+
+        "秦州要闻": "news.html",
+        "政务公开": "gov.html",
+        "政策文件": "policy.html",
+        "城市建设": "city.html",
+        "民生服务": "people.html",
+        "文化旅游": "culture.html",
+        "政府信息": "archive.html",
+        "秦综协委": "qzxw.html",
+        "顾蔓": "404.html",
+        "歌蔑": "gemie.html",
+
+    };
+
+    // 如果关键词存在，就跳转
+    if (searchPages[keyword]) {
+
+        window.location.href = searchPages[keyword];
+
+    }
+
+}
+
+</script>
+
+<body>
+
+
+<!-- =========================
+     顶部工具栏
+========================= -->
+
+<div class="top">
+
+    <div class="top-inner">
+
+        <div class="top-left">
+
+            <span>秦州市人民政府</span>
+
+            <span>繁体中文</span>
+
+            <span>无障碍浏览</span>
+
+        </div>
+
+        <div class="top-right">
+
+            <span>网站地图</span>
+
+            <span>联系我们</span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     网站头部
+========================= -->
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <div class="logo-area">
+
+            <div class="logo">
+                秦
+            </div>
+
+            <div>
+
+                <div class="site-name">
+                    秦州在线
+                </div>
+
+                <div class="site-subtitle">
+                    秦州市人民政府门户网站
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="header-search">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="请输入搜索关键词"
+            >
+
+            <button onclick="doSearch()">
+                搜索
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     导航
+========================= -->
+
+<nav class="nav">
+
+    <div class="nav-inner">
+
+        <a class="active" href="index.html">
+            首页
+        </a>
+
+        <a href="news.html">
+            秦州要闻
+        </a>
+
+        <a href="gov.html">
+            政务公开
+        </a>
+
+        <a href="policy.html">
+            政策文件
+        </a>
+
+        <a href="city.html">
+            城市建设
+        </a>
+
+        <a href="people.html">
+            民生服务
+        </a>
+
+        <a href="culture.html">
+            文化旅游
+        </a>
+
+        <a href="archive.html">
+            政府信息
+        </a>
+
+        <a href="qzxw.html">
+            秦综协委
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+     首页大图
+========================= -->
+
+<div class="container">
+
+    <div class="banner">
+
+        <div class="banner-text">
+
+            <h1>
+                推进城市更新建设　提升群众生活品质
+            </h1>
+
+            <p>
+                秦州市持续推进老城区改造及公共服务设施建设
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- 通知 -->
+
+    <div class="notice">
+
+        <div class="notice-title">
+            最新发布
+        </div>
+
+        <div class="notice-text">
+
+            秦州市关于进一步推进城市公共设施建设工作的通知
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         新闻
+    ========================= -->
+
+    <div class="news-area">
+
+
+        <!-- 秦州要闻 -->
+
+        <div class="box">
+
+            <div class="box-title">
+
+                <h2>
+                    秦州要闻
+                </h2>
+
+                <a class="more" href="news.html">
+                    更多 >
+                </a>
+
+            </div>
+
+
+            <a class="headline" href="article1.html">
+
+                城南片区城市更新项目正式启动
+
+            </a>
+
+            <p class="headline-desc">
+
+                近日，秦州市城南片区城市更新项目正式启动。
+                此次项目将进一步完善区域公共服务设施，
+                改善居民生活环境。
+
+            </p>
+
+
+            <div class="news-item">
+
+                <a href="article2.html">
+                    秦州市召开城市建设重点项目推进会议
+                </a>
+
+                <span class="news-date">
+                    09-05
+                </span>
+
+            </div>
+
+
+            <div class="news-item">
+
+                <a href="article3.html">
+                    秦州南站周边环境整治工作全面展开
+                </a>
+
+                <span class="news-date">
+                    09-05
+                </span>
+
+            </div>
+
+
+            <div class="news-item">
+
+                <a href="404.html">
+                    多部门联合开展城区公共设施检查
+                </a>
+
+                <span class="news-date">
+                    09-04
+                </span>
+
+            </div>
+
+
+            <div class="news-item">
+
+                <a href="404.html">
+                    秦州市公共文化设施提升工程陆续展开
+                </a>
+
+                <span class="news-date">
+                    09-04
+                </span>
+
+            </div>
+
+
+            <div class="news-item">
+
+                <a href="404.html">
+                    城北老旧小区改造项目进入施工阶段
+                </a>
+
+                <span class="news-date">
+                    09-03
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 政务公开 -->
+
+        <div class="box">
+
+            <div class="box-title">
+
+                <h2>
+                    政务公开
+                </h2>
+
+                <a class="more" href="gov.html">
+                    更多 >
+                </a>
+
+            </div>
+
+
+            <div class="news-item">
+
+                <a href="person1.html">
+                    秦州市人民政府关于任命张明远等同志职务的通知
+                </a>
+
+                <span class="news-date">
+                    08-30
+                </span>
+
+            </div>
+
+
+            <div class="news-item">
+
+                <a href="person2.html">
+                    秦州市人民政府关于任命林志诚同志职务的通知
+                </a>
+
+                <span class="news-date">
+                    08-28
+                </span>
+
+            </div>
+
+
+            <div class="news-item">
+
+                <a href="person3.html">
+                    秦州市人民政府关于免去周启山同志职务的通知
+                </a>
+
+                <span class="news-date">
+                    08-26
+                </span>
+
+            </div>
+
+
+            <div class="news-item">
+
+                <a href="person4.html">
+                    秦州市人民政府关于免去顾蔓同志职务的通知
+                </a>
+
+                <span class="news-date">
+                    08-24
+                </span>
+
+            </div>
+
+
+            <div class="news-item">
+
+                <a href="finance1.html">
+                    2026年度秦州市财政预算执行情况
+                </a>
+
+                <span class="news-date">
+                    08-31
+                </span>
+
+            </div>
+
+            <div class="news-item">
+
+                <a href="finance2.html">
+                    2026年度秦州市财政收支情况说明
+                </a>
+
+                <span class="news-date">
+                    08-28
+                </span>
+             </div>
+
+            <div class="news-item">
+
+                <a href="finance3.html">
+                    2026年度秦州市政府性基金预算公开
+                </a>
+
+                <span class="news-date">
+                    08-25
+                </span>
+             </div>
+
+           
+        </div>
+
+
+
+        <!-- 政策文件 -->
+
+        <div class="box">
+
+            <div class="box-title">
+
+                <h2>
+                    政策文件
+                </h2>
+
+                <a class="more" href="policy.html">
+                    更多 >
+                </a>
+
+            </div>
+
+
+            <div class="news-item">
+
+                <a href="#">
+                    秦州市城市更新工作实施方案
+                </a>
+
+                <span class="news-date">
+                    09-05
+                </span>
+
+            </div>
+
+
+            <div class="news-item">
+
+                <a href="#">
+                    关于进一步加强城市管理工作的通知
+                </a>
+
+                <span class="news-date">
+                    09-02
+                </span>
+
+            </div>
+
+
+            <div class="news-item">
+
+                <a href="#">
+                    秦州市公共设施管理办法
+                </a>
+
+                <span class="news-date">
+                    08-28
+                </span>
+
+            </div>
+
+
+            <div class="news-item">
+
+                <a href="#">
+                    秦州市历史建筑保护规定
+                </a>
+
+                <span class="news-date">
+                    08-20
+                </span>
+
+            </div>
+
+
+            <div class="news-item">
+
+                <a href="#">
+                    秦州市城市道路管理办法
+                </a>
+
+                <span class="news-date">
+                    08-16
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         政务服务
+    ========================= -->
+
+    <div class="service">
+
+        <div class="service-title">
+            政务服务
+        </div>
+
+
+        <div class="service-grid">
+
+            <div class="service-item">
+
+                <div class="service-icon">
+                    👤
+                </div>
+
+                <div>
+                    个人办事
+                </div>
+
+            </div>
+
+
+            <div class="service-item">
+
+                <div class="service-icon">
+                    🏢
+                </div>
+
+                <div>
+                    企业办事
+                </div>
+
+            </div>
+
+
+            <div class="service-item">
+
+                <div class="service-icon">
+                    📋
+                </div>
+
+                <div>
+                    政策查询
+                </div>
+
+            </div>
+
+
+            <div class="service-item">
+
+                <div class="service-icon">
+                    💬
+                </div>
+
+                <div>
+                    我要咨询
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         下方信息
+    ========================= -->
+
+    <div class="bottom-area">
+
+
+        <!-- 城市建设 -->
+
+        <div class="box">
+
+            <div class="box-title">
+
+                <h2>
+                    城市建设
+                </h2>
+
+                <a class="more" href="city.html">
+                    更多 >
+                </a>
+
+            </div>
+
+
+            <div class="news-item">
+
+                <a href="#">
+                    城北片区旧城区改造工作有序推进
+                </a>
+
+                <span class="news-date">
+                    09-05
+                </span>
+
+            </div>
+
+
+            <div class="news-item">
+
+                <a href="#">
+                    秦州城区部分道路进行施工维护
+                </a>
+
+                <span class="news-date">
+                    09-04
+                </span>
+
+            </div>
+
+
+            <div class="news-item">
+
+                <a href="#">
+                    新增公共停车场投入使用
+                </a>
+
+                <span class="news-date">
+                    09-03
+                </span>
+
+            </div>
+
+
+            <div class="news-item">
+
+                <a href="#">
+                    城市绿化提升工程进入收尾阶段
+                </a>
+
+                <span class="news-date">
+                    09-01
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 民生 -->
+
+        <div class="box">
+
+            <div class="box-title">
+
+                <h2>
+                    民生服务
+                </h2>
+
+                <a class="more" href="people.html">
+                    更多 >
+                </a>
+
+            </div>
+
+
+            <div class="news-item">
+
+                <a href="#">
+                    本周公交线路调整信息
+                </a>
+
+                <span class="news-date">
+                    09-05
+                </span>
+
+            </div>
+
+
+            <div class="news-item">
+
+                <a href="#">
+                    秦州市秋季校园开学工作完成
+                </a>
+
+                <span class="news-date">
+                    09-04
+                </span>
+
+            </div>
+
+
+            <div class="news-item">
+
+                <a href="#">
+                    城区部分老旧小区电力设施升级
+                </a>
+
+                <span class="news-date">
+                    09-03
+                </span>
+
+            </div>
+
+
+            <div class="news-item">
+
+                <a href="#">
+                    秦州市博物馆公布秋季展览安排
+                </a>
+
+                <span class="news-date">
+                    09-01
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     页脚
+========================= -->
+
+<footer>
+
+    <div class="footer-inner">
+
+        秦州在线　|　秦州市人民政府门户网站
+
+        <br>
+
+        网站地图　联系我们　隐私声明
+
+        <br>
+
+        主办：秦州市人民政府办公厅
+
+        <br>
+
+        Copyright © 2026 秦州在线 All Rights Reserved.
+
+        <br><br>
+
+        本网站为虚构网页，仅用于网页解谜游戏场景，
+        不代表任何真实政府机构或新闻机构。
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>

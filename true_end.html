@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>末卷 · 四序真相</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    min-height:100%;
+}
+
+body{
+    background:
+        radial-gradient(
+            ellipse at center,
+            #17100e 0%,
+            #090706 45%,
+            #000 100%
+        );
+
+    color:#b9aaa0;
+    font-family:
+        "Times New Roman",
+        "Noto Serif SC",
+        "Songti SC",
+        serif;
+
+    overflow-x:hidden;
+}
+
+
+/* ===== 背景 ===== */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,.012) 0px,
+            rgba(255,255,255,.012) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+    pointer-events:none;
+    z-index:10;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:
+        radial-gradient(
+            ellipse,
+            transparent 45%,
+            rgba(0,0,0,.78) 100%
+        );
+
+    pointer-events:none;
+    z-index:9;
+}
+
+
+/* ===== 页面 ===== */
+
+.page{
+    width:900px;
+    max-width:90%;
+    margin:0 auto;
+    padding:90px 0 120px;
+
+    position:relative;
+    z-index:2;
+}
+
+
+/* ===== 顶部 ===== */
+
+.header{
+    text-align:center;
+    margin-bottom:90px;
+}
+
+.header .small{
+    font-family:monospace;
+    font-size:11px;
+    letter-spacing:5px;
+    color:#695c55;
+    margin-bottom:22px;
+}
+
+.header h1{
+    font-size:38px;
+    font-weight:400;
+    letter-spacing:12px;
+    color:#d0c1b6;
+
+    text-shadow:
+        0 0 25px rgba(255,255,255,.05);
+}
+
+.header .line{
+    width:180px;
+    height:1px;
+    background:#4d403a;
+    margin:30px auto;
+}
+
+.header p{
+    font-size:13px;
+    color:#665953;
+    letter-spacing:4px;
+}
+
+
+/* ===== 典籍 ===== */
+
+.scripture{
+    position:relative;
+    padding:35px 55px;
+
+    margin-bottom:80px;
+
+    border-top:1px solid #2c2522;
+    border-bottom:1px solid #2c2522;
+
+    background:
+        rgba(255,255,255,.012);
+}
+
+.scripture::before{
+    content:"“";
+    position:absolute;
+
+    left:15px;
+    top:15px;
+
+    font-size:70px;
+    color:#392d28;
+}
+
+.scripture p{
+    font-size:16px;
+    line-height:2.4;
+    letter-spacing:2px;
+}
+
+.hebrew{
+    color:#8e8077;
+    font-size:17px;
+    letter-spacing:1px;
+}
+
+.red{
+    color:#70423a;
+}
+
+.dim{
+    color:#756860;
+}
+
+
+/* ===== 四序区域 ===== */
+
+.season{
+    margin:110px 0;
+    position:relative;
+}
+
+.season-header{
+    display:flex;
+    align-items:flex-end;
+    gap:22px;
+
+    border-bottom:1px solid #302824;
+    padding-bottom:18px;
+
+    margin-bottom:35px;
+}
+
+.season-number{
+    font-family:monospace;
+    font-size:12px;
+    color:#594b44;
+    letter-spacing:3px;
+}
+
+.season-name{
+    font-size:31px;
+    letter-spacing:8px;
+    color:#c6b7ac;
+}
+
+.season-title{
+    margin-left:auto;
+
+    font-family:monospace;
+    font-size:11px;
+
+    color:#64433d;
+    letter-spacing:3px;
+}
+
+
+/* ===== 内容 ===== */
+
+.content{
+    display:grid;
+    grid-template-columns:180px 1fr;
+    gap:50px;
+}
+
+.symbol{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+}
+
+.symbol-inner{
+    width:110px;
+    height:110px;
+
+    border:1px solid #40342f;
+
+    transform:rotate(45deg);
+
+    position:relative;
+
+    margin-top:15px;
+}
+
+.symbol-inner::before{
+    content:"";
+    position:absolute;
+
+    inset:18px;
+
+    border:1px solid #3a302c;
+}
+
+.symbol-inner::after{
+    content:"";
+
+    position:absolute;
+
+    width:12px;
+    height:12px;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(-45deg);
+
+    background:#4a312d;
+}
+
+.season-text p{
+    font-size:15px;
+    line-height:2.25;
+    margin-bottom:22px;
+
+    color:#a99b92;
+}
+
+.definition{
+    padding:20px 25px;
+
+    border-left:2px solid #49332e;
+
+    background:rgba(80,40,30,.05);
+
+    margin-top:28px;
+}
+
+.definition .label{
+    font-family:monospace;
+    font-size:10px;
+    color:#62423a;
+    letter-spacing:3px;
+    margin-bottom:10px;
+}
+
+.definition strong{
+    display:block;
+    font-size:20px;
+    font-weight:400;
+    letter-spacing:5px;
+    color:#9b7468;
+}
+
+
+/* ===== 分隔 ===== */
+
+.separator{
+    text-align:center;
+    color:#433630;
+
+    margin:80px 0;
+
+    letter-spacing:15px;
+}
+
+
+/* ===== 最终真相 ===== */
+
+.truth{
+    margin-top:130px;
+
+    padding:65px 55px;
+
+    border:1px solid #3b2a27;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(70,30,25,.08),
+            rgba(0,0,0,.2)
+        );
+
+    text-align:center;
+}
+
+.truth .label{
+    font-family:monospace;
+    font-size:11px;
+    letter-spacing:5px;
+    color:#69443c;
+
+    margin-bottom:35px;
+}
+
+.truth h2{
+    font-size:29px;
+    font-weight:400;
+
+    letter-spacing:8px;
+
+    color:#c2b0a5;
+
+    margin-bottom:35px;
+}
+
+.truth p{
+    max-width:650px;
+    margin:0 auto;
+
+    font-size:16px;
+    line-height:2.5;
+
+    color:#a6968c;
+}
+
+.truth .important{
+    margin-top:40px;
+
+    color:#8d5148;
+
+    font-size:20px;
+
+    letter-spacing:5px;
+}
+
+
+/* ===== 最终一句 ===== */
+
+.final{
+    text-align:center;
+
+    margin-top:130px;
+}
+
+.final p{
+    font-size:18px;
+
+    line-height:2.8;
+
+    letter-spacing:5px;
+
+    color:#85756d;
+}
+
+.final .last{
+    margin-top:45px;
+
+    font-size:25px;
+
+    color:#a37a6d;
+
+    letter-spacing:9px;
+}
+
+
+/* ===== 页脚 ===== */
+
+.footer{
+    margin-top:140px;
+
+    text-align:center;
+
+    font-family:monospace;
+
+    color:#443934;
+
+    font-size:10px;
+
+    line-height:2.2;
+
+    letter-spacing:2px;
+}
+
+
+/* ===== 返回 ===== */
+
+.back{
+    position:fixed;
+
+    top:25px;
+    left:30px;
+
+    z-index:20;
+
+    color:#50423d;
+
+    text-decoration:none;
+
+    font-family:monospace;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    transition:.4s;
+}
+
+.back:hover{
+    color:#9b6559;
+}
+
+
+/* ===== 手机 ===== */
+
+@media(max-width:700px){
+
+    .page{
+        padding-top:70px;
+    }
+
+    .header h1{
+        font-size:26px;
+        letter-spacing:7px;
+    }
+
+    .content{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .symbol{
+        display:none;
+    }
+
+    .scripture{
+        padding:30px 25px;
+    }
+
+    .season-header{
+        display:block;
+    }
+
+    .season-title{
+        display:block;
+        margin:12px 0 0;
+    }
+
+    .truth{
+        padding:45px 25px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<a href="index.html" class="back">
+    ← 秦州在线
+</a>
+
+
+<div class="page">
+
+
+<!-- ===== 标题 ===== -->
+
+<header class="header">
+
+    <div class="small">
+        QZ ARCHIVE / FINAL RECORD
+    </div>
+
+    <h1>四序 · 末卷</h1>
+
+    <div class="line"></div>
+
+    <p>
+        ARCHIVE STATUS : UNSEALED
+    </p>
+
+</header>
+
+
+
+<!-- ===== 开篇经文 ===== -->
+
+<section class="scripture">
+
+<p>
+
+凡人所见，春为生，夏为长，秋为获，冬为藏。
+
+<br><br>
+
+而古卷所言：
+
+<span class="hebrew">
+וְהָאָרֶץ תָּבוֹא בְעִתָּהּ
+</span>
+
+<br>
+
+万物各有其时，生者归于生，死者归于死。
+
+<br><br>
+
+<span class="red">
+但他们误解了“时”。
+</span>
+
+<br>
+
+四序并非四神。
+
+<br>
+
+四序只是四扇门。
+
+<br><br>
+
+门后之物，从来不属于此世。
+
+</p>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- 春 -->
+<!-- ================================================= -->
+
+<section class="season">
+
+<div class="season-header">
+
+    <span class="season-number">
+        I / IV
+    </span>
+
+    <span class="season-name">
+        何西阿
+    </span>
+
+    <span class="season-title">
+        SPRING · BEGINNING
+    </span>
+
+</div>
+
+
+<div class="content">
+
+<div class="symbol">
+    <div class="symbol-inner"></div>
+</div>
+
+
+<div class="season-text">
+
+<p>
+
+人称其为春。
+
+<br>
+
+他们说：
+
+“冬去而万物复苏，
+死者重新得到生命。”
+
+</p>
+
+<p>
+
+于是他们等待。
+
+<br>
+
+等待枯木抽芽。
+
+等待亡者睁眼。
+
+等待已经结束的生命重新站起来。
+
+</p>
+
+<p>
+
+他们确实站起来了。
+
+<br><br>
+
+只是那已经不再是原来的东西。
+
+</p>
+
+<div class="definition">
+
+<div class="label">
+TRUE NATURE
+</div>
+
+<strong>
+伪生 · 借生
+</strong>
+
+</div>
+
+<p>
+
+尸体可以行走。
+
+<br>
+
+尸体可以呼吸。
+
+<br>
+
+尸体甚至可以发出声音。
+
+</p>
+
+<p>
+
+但它们不认识亲人。
+
+不记得自己的名字。
+
+也无法理解曾经拥有的一切。
+
+</p>
+
+<p>
+
+有什么东西住进了空出来的身体。
+
+<br>
+
+它借用血肉。
+
+借用记忆的残骸。
+
+借用人的形状。
+
+</p>
+
+<p class="red">
+
+所谓复苏，
+
+不过是死亡为某种东西腾出了位置。
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<div class="separator">
+    · · ·
+</div>
+
+
+
+<!-- ================================================= -->
+<!-- 夏 -->
+<!-- ================================================= -->
+
+<section class="season">
+
+<div class="season-header">
+
+    <span class="season-number">
+        II / IV
+    </span>
+
+    <span class="season-name">
+        哈该
+    </span>
+
+    <span class="season-title">
+        SUMMER · FLOURISH
+    </span>
+
+</div>
+
+
+<div class="content">
+
+<div class="symbol">
+    <div class="symbol-inner"></div>
+</div>
+
+
+<div class="season-text">
+
+<p>
+
+人称其为夏。
+
+<br>
+
+万物繁盛。
+
+草木疯长。
+
+血肉充盈。
+
+</p>
+
+<p>
+
+他们曾经以为，
+
+这就是生命最美好的模样。
+
+</p>
+
+<p>
+
+直到生长不再停止。
+
+</p>
+
+<div class="definition">
+
+<div class="label">
+TRUE NATURE
+</div>
+
+<strong>
+暴长 · 蚀盛
+</strong>
+
+</div>
+
+<p>
+
+细胞失去了秩序。
+
+<br>
+
+它们不再知道什么时候应该停止。
+
+</p>
+
+<p>
+
+一寸血肉之后，
+
+还有一寸。
+
+<br>
+
+一层组织之后，
+
+还有一层。
+
+</p>
+
+<p>
+
+它们疯狂地分裂。
+
+疯狂地索取。
+
+疯狂地吞噬宿主能够提供的一切。
+
+</p>
+
+<p>
+
+营养被抽干。
+
+血液被重新分配。
+
+器官被挤压。
+
+骨骼被覆盖。
+
+</p>
+
+<p>
+
+最后，
+
+身体已经无法辨认自己曾经是什么。
+
+</p>
+
+<p class="red">
+
+生命没有死去。
+
+<br>
+
+生命只是失去了
+
+“停止生长”的资格。
+
+</p>
+
+<p>
+
+直到最后，
+
+所有能够被夺走的东西都被夺走。
+
+<br>
+
+只剩下一滩血。
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<div class="separator">
+    · · ·
+</div>
+
+
+
+<!-- ================================================= -->
+<!-- 秋 -->
+<!-- ================================================= -->
+
+<section class="season">
+
+<div class="season-header">
+
+    <span class="season-number">
+        III / IV
+    </span>
+
+    <span class="season-name">
+        撒迦利亚
+    </span>
+
+    <span class="season-title">
+        AUTUMN · HARVEST
+    </span>
+
+</div>
+
+
+<div class="content">
+
+<div class="symbol">
+    <div class="symbol-inner"></div>
+</div>
+
+
+<div class="season-text">
+
+<p>
+
+人称其为秋。
+
+<br>
+
+收获。
+
+成熟。
+
+果实归仓。
+
+</p>
+
+<p>
+
+可他们从未真正收获过任何东西。
+
+</p>
+
+<div class="definition">
+
+<div class="label">
+TRUE NATURE
+</div>
+
+<strong>
+夺取 · 枯收
+</strong>
+
+</div>
+
+<p>
+
+它首先夺走的，
+
+不是身体。
+
+</p>
+
+<p>
+
+而是认知。
+
+</p>
+
+<p>
+
+它让人在脑中看见自己最想看见的东西。
+
+</p>
+
+<p>
+
+失去的亲人重新回来。
+
+<br>
+
+破碎的家庭重新完整。
+
+<br>
+
+已经失败的人生重新得到机会。
+
+</p>
+
+<p>
+
+他们会笑。
+
+会哭。
+
+会拥抱。
+
+会感谢神明。
+
+</p>
+
+<p>
+
+然后，
+
+他们会在那个幻境里继续活下去。
+
+</p>
+
+<p>
+
+一天。
+
+一年。
+
+十年。
+
+</p>
+
+<p>
+
+现实中的身体却越来越虚弱。
+
+</p>
+
+<p>
+
+生命一点一点地被抽走。
+
+</p>
+
+<p>
+
+直到他们终于意识到：
+
+<br>
+
+那不是救赎。
+
+</p>
+
+<p class="red">
+
+那只是让猎物
+
+自己选择留在笼子里。
+
+</p>
+
+<p>
+
+而所谓“收获”，
+
+不过是收走一个人本应拥有的全部生命。
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<div class="separator">
+    · · ·
+</div>
+
+
+
+<!-- ================================================= -->
+<!-- 冬 -->
+<!-- ================================================= -->
+
+<section class="season">
+
+<div class="season-header">
+
+    <span class="season-number">
+        IV / IV
+    </span>
+
+    <span class="season-name">
+        玛拉基
+    </span>
+
+    <span class="season-title">
+        WINTER · SILENCE
+    </span>
+
+</div>
+
+
+<div class="content">
+
+<div class="symbol">
+    <div class="symbol-inner"></div>
+</div>
+
+
+<div class="season-text">
+
+<p>
+
+人称其为冬。
+
+<br>
+
+终结。
+
+沉寂。
+
+归于大地。
+
+</p>
+
+<p>
+
+他们相信死亡之后仍有道路。
+
+<br>
+
+天堂。
+
+轮回。
+
+另一个世界。
+
+</p>
+
+<p>
+
+但那只是他们自己的理解。
+
+</p>
+
+<div class="definition">
+
+<div class="label">
+TRUE NATURE
+</div>
+
+<strong>
+永寂 · 湮灭
+</strong>
+
+</div>
+
+<p>
+
+死者不会去任何地方。
+
+</p>
+
+<p>
+
+没有天堂。
+
+<br>
+
+没有地狱。
+
+<br>
+
+没有轮回。
+
+</p>
+
+<p>
+
+甚至没有“死亡之后”。
+
+</p>
+
+<p>
+
+因为它会将一个人从世界本身抹去。
+
+</p>
+
+<p>
+
+名字消失。
+
+<br>
+
+照片消失。
+
+<br>
+
+档案消失。
+
+<br>
+
+记忆消失。
+
+</p>
+
+<p>
+
+认识过他的人，
+
+会逐渐忘记自己曾经认识过这样一个人。
+
+</p>
+
+<p>
+
+他的房间仍然存在。
+
+<br>
+
+但没人知道为什么。
+
+</p>
+
+<p>
+
+他的遗物仍然存在。
+
+<br>
+
+却没有人知道它属于谁。
+
+</p>
+
+<p>
+
+最终，
+
+连“曾经存在过”这件事，
+
+也会被一并删除。
+
+</p>
+
+<p class="red">
+
+不是死亡。
+
+<br>
+
+是从世界的账簿上
+
+彻底注销。
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ===== 真相 ===== -->
+
+<section class="truth">
+
+<div class="label">
+THE LAST REVELATION
+</div>
+
+<h2>
+四序从未守护生命
+</h2>
+
+<p>
+
+何西阿不是复苏。
+
+<br>
+
+哈该不是繁盛。
+
+<br>
+
+撒迦利亚不是收获。
+
+<br>
+
+玛拉基也不是安息。
+
+</p>
+
+<p style="margin-top:30px;">
+
+他们只是披上了
+
+人类能够理解的名字。
+
+</p>
+
+<p style="margin-top:30px;">
+
+<strong>
+春、夏、秋、冬。
+</strong>
+
+<br>
+
+是人类为世界划出的四种秩序。
+
+</p>
+
+<p style="margin-top:30px;">
+
+而它们进入这个世界以后，
+
+恰好占据了这四个位置。
+
+</p>
+
+<div class="important">
+
+伪生 · 暴长 · 夺取 · 永寂
+
+</div>
+
+</section>
+
+
+
+<!-- ===== 最终经文 ===== -->
+
+<section class="scripture" style="margin-top:120px;">
+
+<p>
+
+<span class="hebrew">
+כִּי לֹא חַיִּים הֵם
+</span>
+
+<br><br>
+
+它们并非生命。
+
+<br>
+
+却懂得如何模仿生命。
+
+<br><br>
+
+<span class="hebrew">
+וְלֹא מָוֶת הֵם
+</span>
+
+<br><br>
+
+它们甚至不是死亡。
+
+<br>
+
+因为死亡本身，
+
+仍然属于这个世界的秩序。
+
+<br><br>
+
+它们来自秩序之外。
+
+</p>
+
+</section>
+
+
+
+<!-- ===== 最后一段 ===== -->
+
+<section class="final">
+
+<p>
+
+四序轮转。
+
+<br>
+
+春生。
+
+夏长。
+
+秋收。
+
+冬藏。
+
+</p>
+
+<p>
+
+这是人所看见的。
+
+</p>
+
+
+<p style="margin-top:50px;">
+
+而真正的轮转是：
+
+</p>
+
+<p class="last">
+
+伪生 → 暴长 → 夺取 → 永寂
+
+</p>
+
+
+<p style="margin-top:55px;">
+
+然后，
+
+重新开始。
+
+</p>
+
+<p style="margin-top:45px; color:#6c514a;">
+
+因为它们从未离开。
+
+</p>
+
+</section>
+
+
+
+<!-- ===== 最终落款 ===== -->
+
+<footer class="footer">
+
+QZ ARCHIVE SYSTEM
+
+<br>
+
+秦州市综合协调委员会 · 历史专项档案
+
+<br><br>
+
+ARCHIVE : QZ-ARCH-07
+
+<br>
+
+STATUS : ███████████████
+
+<br><br>
+
+“四序已归位。”
+
+<br>
+
+“仪式并未结束。”
+
+</footer>
+
+
+</div>
+
+</body>
+</html>
