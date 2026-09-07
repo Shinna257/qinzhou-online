@@ -257,6 +257,32 @@
                 font-size: 24px;
             }
         }
+        /* 手机端搜索栏修复 */
+        @media (max-width: 800px) {
+            .header {
+                height: auto;
+                padding: 10px 0;
+            }
+
+            .header-inner {
+                height: auto;
+                flex-wrap: wrap;
+                row-gap: 10px;
+            }
+
+            .header-search {
+                display: flex;
+                width: 100%;
+                height: 40px;
+                min-width: 0;
+            }
+
+            .header-search input {
+                min-width: 0;
+                font-size: 16px;
+            }
+        }
+
     </style>
 </head>
 
@@ -486,6 +512,51 @@
         </div>
 
     </footer>
+
+<script>
+    (function () {
+        const searchInput = document.querySelector(".header-search input");
+        const searchButton = document.querySelector(".header-search button");
+        if (!searchInput || !searchButton) {
+            return;
+        }
+
+        searchInput.id = "searchInput";
+
+        function doSearch() {
+            const keyword = searchInput.value.trim();
+
+            if (keyword === "QZ-ARCH-07") {
+                alert("请使用特殊档案查询功能");
+                return;
+            }
+
+            const searchPages = {
+                "秦州要闻": "news.html",
+                "政务公开": "gov.html",
+                "政策文件": "policy.html",
+                "城市建设": "city.html",
+                "民生服务": "people.html",
+                "文化旅游": "culture.html",
+                "政府信息": "archive.html",
+                "秦综协委": "qzxw.html",
+                "顾蔓": "404.html",
+                "歌蔑": "gemie.html"
+            };
+
+            if (searchPages[keyword]) {
+                window.location.href = searchPages[keyword];
+            }
+        }
+
+        searchButton.addEventListener("click", doSearch);
+        searchInput.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                doSearch();
+            }
+        });
+    })();
+</script>
 
 </body>
 </html>
